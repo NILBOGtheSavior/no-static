@@ -10,12 +10,21 @@ var dir = Vector3()
 var camera
 var rotation_helper
 
+var raycast
+
 var MOUSE_SENSITIVITY : float = 0.05
 
 func _ready() -> void:
 	camera = $RotationHelper/Camera3D
 	rotation_helper = $RotationHelper
+	raycast = $RotationHelper/Camera3D/RayCast3D
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	
+func _process(delta: float) -> void:
+	if raycast.is_colliding():
+		var obj = raycast.get_collider()
+		if obj.is_in_group("interactable"):
+			return
 
 func _physics_process(delta: float) -> void:
 	dir = Vector3.ZERO
@@ -59,3 +68,4 @@ func _input(event):
 		var camera_rot = rotation_helper.rotation_degrees
 		camera_rot.x = clamp(camera_rot.x, -70, 70)
 		rotation_helper.rotation_degrees = camera_rot
+		

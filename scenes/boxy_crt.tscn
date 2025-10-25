@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://b5x1wy5qvk8he"]
+
+[ext_resource type="Script" uid="uid://sqkno4vgx0wy" path="res://scripts/tv.gd" id="1_yog0n"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t2e77"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_t2e77"]
+albedo_color = Color(0.5890956, 0.5890956, 0.5890956, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_yog0n"]
+material = SubResource("StandardMaterial3D_t2e77")
+
+[node name="BoxyCRT" type="StaticBody3D" groups=["interactable"]]
+collision_layer = 3
+collision_mask = 0
+script = ExtResource("1_yog0n")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_t2e77")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D"]
+mesh = SubResource("BoxMesh_yog0n")
