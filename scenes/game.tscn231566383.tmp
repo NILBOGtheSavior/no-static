@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://wp7clojnrted"]
+
+[ext_resource type="PackedScene" uid="uid://dyhj74btkdmv4" path="res://scenes/player.tscn" id="1_uwrxv"]
+[ext_resource type="Texture2D" uid="uid://ciyrpspqt4ppy" path="res://assets/textures/grid.png" id="1_yqjtg"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_yqjtg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lnu2h"]
+albedo_texture = ExtResource("1_yqjtg")
+uv1_scale = Vector3(10, 10, 10)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_lbhrr"]
+material = SubResource("StandardMaterial3D_lnu2h")
+size = Vector2(50, 50)
+
+[node name="Game" type="Node"]
+
+[node name="Environment" type="Node3D" parent="."]
+
+[node name="Ground" type="Node3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+
+[node name="Area3D" type="Area3D" parent="Environment/Ground"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Ground/Area3D"]
+shape = SubResource("WorldBoundaryShape3D_yqjtg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/Ground/Area3D/CollisionShape3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("PlaneMesh_lbhrr")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 16.446945, 0.35692024)
+omni_range = 83.12952
+
+[node name="Player" parent="." instance=ExtResource("1_uwrxv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
