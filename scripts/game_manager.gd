@@ -7,12 +7,10 @@ var tvs : Array
 var selected_object = null
 var active_object = null
 
-func _ready() -> void:
-	tvs = get_tree().get_nodes_in_group("tv_objects")
-	var random_tv = tvs.pick_random()
-	print(random_tv)
-	random_tv.start_static()
-
 func add_score(points):
 	score += points
-	
+
+func posess_tv():
+	var random_tv = tvs.pick_random()
+	print(random_tv)
+	random_tv.posess(randi_range(2, 5), randi_range(0, 1))

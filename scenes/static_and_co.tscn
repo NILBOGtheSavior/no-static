@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://ducooq07g45y2"]
+
+[ext_resource type="PackedScene" uid="uid://cdy68u5qbpr6i" path="res://assets/models/static_and_co.glb" id="1_2ee1s"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2ee1s"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.21176471)
+roughness = 0.25
+
+[node name="static_and_co" instance=ExtResource("1_2ee1s")]
+
+[node name="Window" parent="." index="4"]
+surface_material_override/0 = SubResource("StandardMaterial3D_2ee1s")

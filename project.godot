@@ -11,9 +11,11 @@ config_version=5
 [application]
 
 config/name="No Static"
-run/main_scene="uid://wp7clojnrted"
+run/main_scene="uid://drvngi75kkbhq"
 config/features=PackedStringArray("4.5", "GL Compatibility")
-config/icon="res://icon.svg"
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/image="uid://bfbpvwvx2dnt0"
+config/icon="uid://2758tji1lwi0"
 
 [autoload]
 

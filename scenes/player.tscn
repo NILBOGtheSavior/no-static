@@ -12,7 +12,7 @@ script = ExtResource("1_3vyb7")
 shape = SubResource("CapsuleShape3D_sh265")
 
 [node name="RotationHelper" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 
 [node name="Marker3D" type="Marker3D" parent="RotationHelper"]
 

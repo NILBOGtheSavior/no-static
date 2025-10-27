@@ -11,6 +11,9 @@ var screen_shader
 
 @export_range(0,1) var noise_strength : float = 0
 
+var posessed : bool = false
+var tune_distance : int = 0
+
 func _ready() -> void:
 	tv_mesh = $CollisionShape3D/yoshiba_tv/TV
 	screen_mesh = $CollisionShape3D/yoshiba_tv/Screen
@@ -19,17 +22,24 @@ func _ready() -> void:
 	static_audio_player = $CollisionShape3D/yoshiba_tv/StaticAudio
 	screen_mat = $CollisionShape3D/yoshiba_tv/MeshInstance3D.get_surface_override_material(0)
 	screen_shader = screen_mat.get_shader()
-	
 	var length = video_player.get_stream_length()
 	var start_position = randf() * length
 	video_player.stream_position = start_position
 	video_player.play()
 	movie_audio_player.play(start_position)
+	static_audio_player.volume_db = -80
 	static_audio_player.play()
 
 func _process(delta: float) -> void:
+	noise_strength = lerp(noise_strength, abs(tune_distance) / 10.0, delta * 5)
 	screen_mat.set_shader_parameter("noise_strength", noise_strength)
 	update_audio()
+	if tune_distance == 0 and posessed == true:
+		posessed = false
+	if tune_distance > 10:
+		tune_distance = 10
+	if tune_distance < - 10:
+		tune_distance = -10
 	if self == GameManager.selected_object:
 		highlight(true)
 	else:
@@ -37,15 +47,18 @@ func _process(delta: float) -> void:
 
 func update_audio():
 	# audio from -80 to -25
-	var min_db = -80
-	var max_db = -5
-	var movie_db_value = lerp(max_db, min_db, noise_strength)
-	var static_db_value = lerp(min_db, max_db, noise_strength)
+	var movie_db_value = lerp(-5, -80, noise_strength)
+	var static_db_value = lerp(-80, -25, noise_strength)
 	static_audio_player.volume_db = static_db_value
 	movie_audio_player.volume_db = movie_db_value
 
-func start_static():
-	noise_strength = 0.5
+func posess(dist : int, positive : bool):
+	if not posessed:
+		posessed = true
+		if positive:
+			tune_distance = dist
+		else:
+			tune_distance = -dist
 
 func get_marker():
 	return $Marker3D
@@ -55,3 +68,11 @@ func highlight(state : bool):
 		tv_mesh.set_surface_override_material(0, highlight_mat)
 	else:
 		tv_mesh.set_surface_override_material(0, null)
+
+func _on_button_up_area_input_event(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
+	if event is InputEventMouseButton and event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:
+		tune_distance += 1
+
+func _on_button_down_area_input_event(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
+	if event is InputEventMouseButton and event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:
+		tune_distance -= 1

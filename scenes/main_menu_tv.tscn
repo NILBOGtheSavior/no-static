@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bt6o4yntr1hma"]
+
+[ext_resource type="PackedScene" uid="uid://c7hhj2qkgx3yu" path="res://assets/models/yoshiba_tv.glb" id="1_p8342"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p8342"]
+albedo_color = Color(0, 0, 0, 1)
+metallic = 0.75
+metallic_specular = 1.0
+roughness = 0.25
+
+[node name="yoshiba_tv" instance=ExtResource("1_p8342")]
+
+[node name="Screen" parent="." index="1"]
+surface_material_override/0 = SubResource("StandardMaterial3D_p8342")
