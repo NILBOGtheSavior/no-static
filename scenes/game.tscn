@@ -1,8 +1,15 @@
-[gd_scene load_steps=7 format=3 uid="uid://wp7clojnrted"]
+[gd_scene load_steps=8 format=3 uid="uid://wp7clojnrted"]
 
 [ext_resource type="PackedScene" uid="uid://dyhj74btkdmv4" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://ciyrpspqt4ppy" path="res://assets/textures/grid.png" id="1_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://b5x1wy5qvk8he" path="res://scenes/boxy_crt.tscn" id="3_lnu2h"]
+
+[sub_resource type="Environment" id="Environment_lnu2h"]
+glow_enabled = true
+glow_normalized = true
+glow_intensity = 1.5
+volumetric_fog_enabled = true
+volumetric_fog_albedo = Color(0, 0, 0, 1)
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_yqjtg"]
 
@@ -16,32 +23,33 @@ size = Vector2(50, 50)
 
 [node name="Game" type="Node"]
 
-[node name="Environment" type="Node3D" parent="."]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_lnu2h")
 
-[node name="Ground" type="Node3D" parent="Environment"]
+[node name="Ground" type="StaticBody3D" parent="WorldEnvironment"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Environment/Ground"]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment/Ground/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldEnvironment/Ground"]
 shape = SubResource("WorldBoundaryShape3D_yqjtg")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Environment/Ground/StaticBody3D/CollisionShape3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WorldEnvironment/Ground/CollisionShape3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 mesh = SubResource("PlaneMesh_lbhrr")
 
-[node name="OmniLight3D" type="OmniLight3D" parent="Environment"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 16.446945, 0.35692024)
+[node name="OmniLight3D" type="OmniLight3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.241334, 0.35692024)
+light_energy = 5.0
+shadow_enabled = true
 omni_range = 83.12952
 
 [node name="Player" parent="." instance=ExtResource("1_uwrxv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
 [node name="BoxyCRT" parent="." instance=ExtResource("3_lnu2h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8883917, 1, -8)
+transform = Transform3D(0.9850883, 0, -0.17204945, 0, 1, 0, 0.17204945, 0, 0.9850883, 2.5934649, 0.50903094, -7.6802387)
 
 [node name="BoxyCRT2" parent="." instance=ExtResource("3_lnu2h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11160827, 1, -8)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.11160827, 0.5090307, -8)
 
 [node name="BoxyCRT3" parent="." instance=ExtResource("3_lnu2h")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1116083, 1, -8)
+transform = Transform3D(0.93985367, 0, 0.3415773, 0, 1, 0, -0.3415773, 0, 0.93985367, -2.909848, 0.50903046, -7.9350915)

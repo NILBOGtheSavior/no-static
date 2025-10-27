@@ -9,7 +9,6 @@ var dir = Vector3()
 
 var camera
 var rotation_helper
-
 var raycast
 
 var MOUSE_SENSITIVITY : float = 0.05
@@ -21,12 +20,36 @@ func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
 func _process(delta: float) -> void:
-	if raycast.is_colliding():
+	if raycast.is_colliding() and GameManager.active_object == null:
 		var obj = raycast.get_collider()
-		if obj.is_in_group("interactable"):
-			return
+		if obj.is_in_group("tv_objects"):
+			GameManager.selected_object = obj
+	else:
+		GameManager.selected_object = null
+		
+	if Input.is_action_just_pressed("ui_cancel") and GameManager.active_object != null:
+		GameManager.active_object = null
+		reset_camera()
+		
+	if Input.is_action_just_pressed("select_item") and GameManager.selected_object != null:
+		GameManager.active_object = GameManager.selected_object
+		tune_tv(delta)
 
 func _physics_process(delta: float) -> void:
+	if GameManager.active_object == null:
+		handle_movement(delta)
+	move_and_slide()
+	
+func _input(event):
+	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED and GameManager.active_object == null:
+		rotation_helper.rotate_x(deg_to_rad(event.relative.y * MOUSE_SENSITIVITY * -1))
+		self.rotate_y(deg_to_rad(event.relative.x * MOUSE_SENSITIVITY * -1))
+		
+		var camera_rotation = rotation_helper.rotation_degrees
+		camera_rotation.x = clamp(camera_rotation.x, -70, 70)
+		rotation_helper.rotation_degrees = camera_rotation
+
+func handle_movement(delta):
 	dir = Vector3.ZERO
 	
 	var cam_xform = camera.get_global_transform()
@@ -53,19 +76,25 @@ func _physics_process(delta: float) -> void:
 	velocity = lerp(velocity, target_velocity, delta * friction)
 	
 	if Input.is_action_just_pressed("ui_cancel"):
-		if Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE:
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-		else:
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	
-	move_and_slide()
+		#get_tree().paused = true
+		toggle_cursor()
 
-func _input(event):
-	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
-		rotation_helper.rotate_x(deg_to_rad(event.relative.y * MOUSE_SENSITIVITY * -1))
-		self.rotate_y(deg_to_rad(event.relative.x * MOUSE_SENSITIVITY * -1))
-		
-		var camera_rot = rotation_helper.rotation_degrees
-		camera_rot.x = clamp(camera_rot.x, -70, 70)
-		rotation_helper.rotation_degrees = camera_rot
-		
+func toggle_cursor():
+	if Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE:
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	else:
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
+func reset_camera():
+	var camera_target = $RotationHelper/Marker3D
+	camera.global_position = camera_target.global_position
+	camera.global_rotation = camera_target.global_rotation
+	toggle_cursor()
+
+func tune_tv(delta):
+	velocity = Vector3.ZERO
+	GameManager.selected_object = null
+	var camera_target = GameManager.active_object.get_marker()
+	camera.global_position = camera_target.global_position
+	camera.global_rotation = camera_target.global_rotation
+	toggle_cursor()

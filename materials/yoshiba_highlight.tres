@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://iya10we4048h"]
+
+[ext_resource type="Shader" uid="uid://t2j3kpa2dwv4" path="res://shaders/highlight.gdshader" id="1_1rvc0"]
+[ext_resource type="Texture2D" uid="uid://ci4gx0pbxatgb" path="res://assets/models/yoshiba_tv_tv_base.png" id="2_chhyq"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_1rvc0")
+shader_parameter/tex = ExtResource("2_chhyq")
+shader_parameter/highlight_strength = 0.150000007125
+shader_parameter/time_speed = 2.0
