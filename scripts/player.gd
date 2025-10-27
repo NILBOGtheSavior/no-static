@@ -25,6 +25,9 @@ func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
 func _process(delta: float) -> void:
+	#print(GameManager.health)
+	if GameManager.health > GameManager.max_health:
+		game_over()
 	if allow_movement:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	else:
@@ -88,6 +91,11 @@ func handle_movement(delta):
 	target_velocity.z = dir.z * walking_speed
 	
 	velocity = lerp(velocity, target_velocity, delta * friction)
+
+func game_over():
+	var current_scene = get_tree().current_scene
+	current_scene.queue_free()
+	get_tree().change_scene_to_file("res://scenes/game_over.tscn")
 
 func pause_game():
 	pause_menu = pause_menu_scene.instantiate()

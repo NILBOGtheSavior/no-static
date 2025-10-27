@@ -1,0 +1,106 @@
+[gd_scene load_steps=8 format=3 uid="uid://cgmlag07bcito"]
+
+[ext_resource type="Script" uid="uid://camj3eol0mkr3" path="res://scripts/game_over.gd" id="2_racf3"]
+[ext_resource type="Shader" uid="uid://dwgel3d3daqn5" path="res://shaders/menu_static.gdshader" id="3_8bugq"]
+[ext_resource type="Texture2D" uid="uid://bd87v8p2ymr6c" path="res://assets/images/title.png" id="5_56v3a"]
+[ext_resource type="AudioStream" uid="uid://jy1sov2bmjxe" path="res://assets/audio/static.ogg" id="7_uq3qu"]
+
+[sub_resource type="Environment" id="Environment_bqqt6"]
+background_mode = 1
+volumetric_fog_enabled = true
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_wu84c"]
+size = Vector2(20, 20)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8ln24"]
+render_priority = 0
+shader = ExtResource("3_8bugq")
+shader_parameter/scale = 250.0
+
+[node name="GameOver" type="Node"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_bqqt6")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.5319293)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, -2.8039618)
+mesh = SubResource("PlaneMesh_wu84c")
+surface_material_override/0 = SubResource("ShaderMaterial_8ln24")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_racf3")
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -325.0
+offset_top = 181.0
+offset_right = 1595.0
+offset_bottom = 1261.0
+grow_horizontal = 2
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("5_56v3a")
+stretch_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = 10.0
+offset_right = 250.0
+offset_bottom = 206.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(250, -50)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Control/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Score:"
+horizontal_alignment = 1
+
+[node name="Score" type="Label" parent="Control/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+
+[node name="PlayAgain" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "PLAY AGAIN"
+
+[node name="MainMenu" type="Button" parent="Control/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "MAIN MENU"
+
+[node name="KeyLight" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9470048, 1.046814, 4.145144)
+omni_range = 12.579753
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_uq3qu")
+volume_db = -25.0
+autoplay = true
+parameters/looping = true
+
+[connection signal="pressed" from="Control/VBoxContainer/PlayAgain" to="Control" method="_on_play_again_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/MainMenu" to="Control" method="_on_main_menu_pressed"]

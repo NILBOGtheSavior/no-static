@@ -8,6 +8,12 @@ var static_audio_player : AudioStreamPlayer3D
 var highlight_mat = preload("res://materials/yoshiba_highlight.tres")
 var screen_mat
 var screen_shader
+var button_up_mesh
+var button_down_mesh
+var button_up : bool
+var button_down : bool
+
+@export var score : int = 5
 
 @export_range(0,1) var noise_strength : float = 0
 
@@ -17,6 +23,8 @@ var tune_distance : int = 0
 func _ready() -> void:
 	tv_mesh = $CollisionShape3D/yoshiba_tv/TV
 	screen_mesh = $CollisionShape3D/yoshiba_tv/Screen
+	button_up_mesh = $CollisionShape3D/yoshiba_tv/ButtonUp
+	button_down_mesh = $CollisionShape3D/yoshiba_tv/ButtonDown
 	video_player = $CollisionShape3D/yoshiba_tv/MeshInstance3D/SubViewport/VideoStreamPlayer
 	movie_audio_player = $CollisionShape3D/yoshiba_tv/MovieAudio
 	static_audio_player = $CollisionShape3D/yoshiba_tv/StaticAudio
@@ -35,6 +43,7 @@ func _process(delta: float) -> void:
 	screen_mat.set_shader_parameter("noise_strength", noise_strength)
 	update_audio()
 	if tune_distance == 0 and posessed == true:
+		GameManager.add_score(score)
 		posessed = false
 	if tune_distance > 10:
 		tune_distance = 10
@@ -66,8 +75,21 @@ func get_marker():
 func highlight(state : bool):
 	if state:
 		tv_mesh.set_surface_override_material(0, highlight_mat)
+		button_up_mesh.set_surface_override_material(0, highlight_mat)
+		button_down_mesh.set_surface_override_material(0, highlight_mat)
+		
 	else:
 		tv_mesh.set_surface_override_material(0, null)
+		if button_up:
+			button_up_mesh.set_surface_override_material(0, highlight_mat)
+		else:
+			button_up_mesh.set_surface_override_material(0, null)
+		if button_down:
+			button_down_mesh.set_surface_override_material(0, highlight_mat)
+		else:
+			button_down_mesh.set_surface_override_material(0, null)
+
+
 
 func _on_button_up_area_input_event(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:
@@ -76,3 +98,17 @@ func _on_button_up_area_input_event(camera: Node, event: InputEvent, event_posit
 func _on_button_down_area_input_event(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:
 		tune_distance -= 1
+
+func _on_button_up_area_mouse_entered() -> void:
+	button_up = true
+
+func _on_button_up_area_mouse_exited() -> void:
+	button_up = false
+
+
+func _on_button_down_area_mouse_entered() -> void:
+	button_down = true
+
+
+func _on_button_down_area_mouse_exited() -> void:
+	button_down = false

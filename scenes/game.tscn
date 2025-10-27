@@ -1,10 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://wp7clojnrted"]
+[gd_scene load_steps=15 format=3 uid="uid://wp7clojnrted"]
 
 [ext_resource type="PackedScene" uid="uid://dyhj74btkdmv4" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://ducooq07g45y2" path="res://scenes/static_and_co.tscn" id="3_iywne"]
 [ext_resource type="PackedScene" uid="uid://b5x1wy5qvk8he" path="res://scenes/boxy_crt.tscn" id="3_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://b00awnbrbepg8" path="res://scenes/counter.tscn" id="4_iywne"]
 [ext_resource type="Script" uid="uid://c7pwof6p0k0vh" path="res://scripts/timer.gd" id="5_iywne"]
+[ext_resource type="PackedScene" uid="uid://bkpbvk4vksulv" path="res://scenes/hud.tscn" id="6_p57ef"]
+[ext_resource type="Shader" uid="uid://dwgel3d3daqn5" path="res://shaders/menu_static.gdshader" id="8_gee14"]
 
 [sub_resource type="Environment" id="Environment_lnu2h"]
 background_mode = 1
@@ -24,7 +26,17 @@ size = Vector3(10.758713, 5.317627, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_p57ef"]
 size = Vector3(1.2128906, 1.0097046, 3.1564941)
 
+[sub_resource type="PlaneMesh" id="PlaneMesh_0tnpc"]
+size = Vector2(20, 20)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vtaks"]
+render_priority = 0
+shader = ExtResource("8_gee14")
+shader_parameter/scale = 250.0
+
 [node name="Game" type="Node"]
+
+[node name="HUD" parent="." instance=ExtResource("6_p57ef")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_lnu2h")
@@ -36,7 +48,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 shape = SubResource("WorldBoundaryShape3D_yqjtg")
 
 [node name="OmniLight3D" type="OmniLight3D" parent="WorldEnvironment"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.7760162, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.0416813, 2.7285984)
 light_energy = 0.1
 shadow_enabled = true
 omni_range = 8.582418
@@ -129,5 +141,15 @@ transform = Transform3D(0.31475464, 0, -0.94917303, 0, 1, 0, 0.94917303, 0, 0.31
 
 [node name="BoxyCRT2" parent="Counter4" instance=ExtResource("3_lnu2h")]
 transform = Transform3D(-0.22503597, 0, -0.97435045, 0, 1, 0, 0.97435045, 0, -0.22503597, -0.039932728, 1, 0.7836435)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, -7.972543)
+mesh = SubResource("PlaneMesh_0tnpc")
+surface_material_override/0 = SubResource("ShaderMaterial_vtaks")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.00359, -7.4427485)
+light_energy = 0.3
+omni_range = 10.43123
 
 [connection signal="timeout" from="Timer" to="Timer" method="_on_timeout"]

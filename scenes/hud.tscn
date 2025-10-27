@@ -1,0 +1,112 @@
+[gd_scene load_steps=5 format=3 uid="uid://bkpbvk4vksulv"]
+
+[ext_resource type="Shader" uid="uid://dtn0x46671k2e" path="res://shaders/overlay_static.gdshader" id="1_ahhtf"]
+[ext_resource type="Script" uid="uid://btxe82tpr54kq" path="res://scripts/hud.gd" id="1_oo0fn"]
+[ext_resource type="Texture2D" uid="uid://wdwyn455s310" path="res://assets/images/E-Key.png" id="3_5ysmq"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oo0fn"]
+shader = ExtResource("1_ahhtf")
+shader_parameter/time_speed = 1.0
+shader_parameter/noise_strength = 0.0
+shader_parameter/noise_scale = 50.0
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_oo0fn")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_oo0fn")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Score" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 36.0
+offset_right = 20.0
+offset_bottom = 59.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 64
+
+[node name="InteractHint" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -22.5
+offset_right = -28.0
+offset_bottom = 22.5
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 24
+text = "Interact"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="InteractHint"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = -10.5
+offset_right = 6.0
+offset_bottom = 10.5
+grow_vertical = 2
+texture = ExtResource("3_5ysmq")
+expand_mode = 1
+
+[node name="LeaveHint" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -22.5
+offset_right = -28.0
+offset_bottom = 22.5
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 24
+text = "Escape"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="LeaveHint"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = -10.5
+offset_right = 6.0
+offset_bottom = 10.5
+grow_vertical = 2
+texture = ExtResource("3_5ysmq")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="LeaveHint"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
