@@ -2,4 +2,8 @@
 .godot/
 /android/
 
+bin/*
+
+!.gitkeep
+
 *.tmp
