@@ -12,10 +12,10 @@ var max_score = 150
 var tvs : Array
 
 #var paused : bool
-var cursor_enabled : bool = true
+var cursor_enabled : bool
 
-var selected_object = null
-var active_object = null
+var selected_object
+var active_object
 
 func add_score(points):
 	score += points

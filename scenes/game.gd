@@ -4,7 +4,7 @@ var pause_menu_scene = preload("res://scenes/pause_menu.tscn")
 var pause_menu
 
 func _ready() -> void:
-	GameManager.cursor_enabled = true
+	GameManager.cursor_enabled = false
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
@@ -36,7 +36,7 @@ func pause_game():
 	pause_menu = pause_menu_scene.instantiate()
 	add_child(pause_menu)
 	pause_menu.resume_game.connect(_on_resume_game)
-	#pause_menu.restart_game.connect(_on_restart_game)
-	#pause_menu.main_menu.connect(_on_main_menu)
+	pause_menu.restart_game.connect(_on_restart_game)
+	pause_menu.main_menu.connect(_on_main_menu)
 	get_tree().paused = true
-	GameManager.cursor_mode(true)
+	

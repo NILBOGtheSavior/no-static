@@ -1,6 +1,7 @@
 extends Control
 
 func _ready() -> void:
+	GameManager.cursor_enabled = true
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	get_tree().paused = false
 	$VBoxContainer/Play.pressed.connect(_on_play_pressed)

@@ -45,12 +45,11 @@ func _process(delta: float) -> void:
 		tune_tv(delta)
 
 func _physics_process(delta: float) -> void:
-	if Input.is_action_just_pressed("ui_cancel"):
-		if not GameManager.paused:
-			GameManager.paused = true
-			
 	if GameManager.active_object == null:
+		GameManager.cursor_enabled = false
 		handle_movement(delta)
+	else:
+		GameManager.cursor_enabled = true
 	move_and_slide()
 	
 func _input(event):
