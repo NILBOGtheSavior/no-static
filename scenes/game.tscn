@@ -1,5 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://wp7clojnrted"]
+[gd_scene load_steps=11 format=3 uid="uid://wp7clojnrted"]
 
+[ext_resource type="Script" uid="uid://b81qxp1e7kibx" path="res://scenes/game.gd" id="1_p57ef"]
 [ext_resource type="PackedScene" uid="uid://dyhj74btkdmv4" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://ducooq07g45y2" path="res://scenes/static_and_co.tscn" id="3_iywne"]
 [ext_resource type="Script" uid="uid://c7pwof6p0k0vh" path="res://scripts/timer.gd" id="5_iywne"]
@@ -24,6 +25,7 @@ shader = ExtResource("8_gee14")
 shader_parameter/scale = 250.0
 
 [node name="Game" type="Node"]
+script = ExtResource("1_p57ef")
 
 [node name="HUD" parent="." instance=ExtResource("6_p57ef")]
 
@@ -62,4 +64,5 @@ transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0
 mesh = SubResource("PlaneMesh_0tnpc")
 surface_material_override/0 = SubResource("ShaderMaterial_vtaks")
 
+[connection signal="game_over" from="Player" to="." method="_on_game_over"]
 [connection signal="timeout" from="Timer" to="Timer" method="_on_timeout"]

@@ -4,8 +4,7 @@ extends CharacterBody3D
 @export var running_speed : int = 10
 @export var friction : int = 5
 
-var pause_menu_scene = preload("res://scenes/pause_menu.tscn")
-var pause_menu
+signal game_over
 
 var target_velocity = Vector3.ZERO
 var dir = Vector3()
@@ -22,16 +21,13 @@ func _ready() -> void:
 	camera = $RotationHelper/Camera3D
 	rotation_helper = $RotationHelper
 	raycast = $RotationHelper/Camera3D/RayCast3D
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	GameManager.cursor_enabled = false
 	
 func _process(delta: float) -> void:
 	#print(GameManager.health)
 	if GameManager.health > GameManager.max_health:
-		game_over()
-	if allow_movement:
-		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	else:
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		allow_movement = false
+		emit_signal("game_over")
 		
 	if raycast.is_colliding() and GameManager.active_object == null:
 		var obj = raycast.get_collider()
@@ -50,15 +46,15 @@ func _process(delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
-		if not pause_menu:
-			pause_game()
+		if not GameManager.paused:
+			GameManager.paused = true
 			
 	if GameManager.active_object == null:
 		handle_movement(delta)
 	move_and_slide()
 	
 func _input(event):
-	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED and GameManager.active_object == null:
+	if event is InputEventMouseMotion and GameManager.cursor_enabled == false and GameManager.active_object == null:
 		rotation_helper.rotate_x(deg_to_rad(event.relative.y * MOUSE_SENSITIVITY * -1))
 		self.rotate_y(deg_to_rad(event.relative.x * MOUSE_SENSITIVITY * -1))
 		
@@ -91,40 +87,6 @@ func handle_movement(delta):
 	target_velocity.z = dir.z * walking_speed
 	
 	velocity = lerp(velocity, target_velocity, delta * friction)
-
-func game_over():
-	var current_scene = get_tree().current_scene
-	current_scene.queue_free()
-	get_tree().change_scene_to_file("res://scenes/game_over.tscn")
-
-func pause_game():
-	pause_menu = pause_menu_scene.instantiate()
-	add_child(pause_menu)
-	pause_menu.resume_game.connect(_on_resume_game)
-	pause_menu.restart_game.connect(_on_restart_game)
-	pause_menu.main_menu.connect(_on_main_menu)
-	get_tree().paused = true
-	toggle_cursor()
-
-func _on_resume_game():
-	get_tree().paused = false
-	pause_menu.queue_free()
-	pause_menu = null
-	
-func _on_restart_game():
-	get_tree().paused = false
-	get_tree().change_scene_to_file("res://scenes/game.tscn")
-
-func _on_main_menu():
-	var current_scene = get_tree().current_scene
-	current_scene.queue_free()
-	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
-
-func toggle_cursor():
-	if Input.get_mouse_mode() == Input.MOUSE_MODE_VISIBLE:
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	else:
-		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func reset_camera():
 	var camera_target = $RotationHelper/Marker3D

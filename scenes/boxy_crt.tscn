@@ -21,14 +21,14 @@ shape = SubResource("BoxShape3D_t2e77")
 [node name="yoshiba_tv" parent="CollisionShape3D" instance=ExtResource("2_pncf4")]
 
 [node name="ButtonUpArea" type="Area3D" parent="CollisionShape3D"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.14069496, -0.4173489, 0.51283526)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.14069496, -0.4173489, 0.49390978)
 
 [node name="TuneUp" type="CollisionShape3D" parent="CollisionShape3D/ButtonUpArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.08016479, 0.0068265796, -0.083314896)
 shape = SubResource("BoxShape3D_pncf4")
 
 [node name="ButtonDownArea" type="Area3D" parent="CollisionShape3D"]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.14069496, -0.4173489, 0.51283526)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.14069496, -0.4173489, 0.49390978)
 
 [node name="TuneDown" type="CollisionShape3D" parent="CollisionShape3D/ButtonDownArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.08103514, 0.0068265796, -0.083314896)
