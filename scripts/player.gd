@@ -93,6 +93,7 @@ func handle_movement(delta):
 	velocity = lerp(velocity, target_velocity, delta * friction)
 
 func game_over():
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	var current_scene = get_tree().current_scene
 	current_scene.queue_free()
 	get_tree().change_scene_to_file("res://scenes/game_over.tscn")

@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dxky4gj3i7qpf"
 path.s3tc="res://.godot/imported/counter_counter_base.png-0721d817a3650f64424e86a43b671d1f.s3tc.ctex"
+path.etc2="res://.godot/imported/counter_counter_base.png-0721d817a3650f64424e86a43b671d1f.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/models/counter_counter_base.png"
-dest_files=["res://.godot/imported/counter_counter_base.png-0721d817a3650f64424e86a43b671d1f.s3tc.ctex"]
+dest_files=["res://.godot/imported/counter_counter_base.png-0721d817a3650f64424e86a43b671d1f.s3tc.ctex", "res://.godot/imported/counter_counter_base.png-0721d817a3650f64424e86a43b671d1f.etc2.ctex"]
 
 [params]
 

@@ -25,7 +25,7 @@ GameManager="*res://scripts/game_manager.gd"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/size/resizable=false
+window/stretch/mode="canvas_items"
 
 [global_group]
 
@@ -69,3 +69,7 @@ select_item={
 3d_physics/layer_1="player"
 3d_physics/layer_2="objects"
 3d_physics/layer_3="environment"
+
+[rendering]
+
+textures/vram_compression/import_etc2_astc=true
