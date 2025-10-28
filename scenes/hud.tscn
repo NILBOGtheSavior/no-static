@@ -61,7 +61,7 @@ text = "Interact"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="InteractHint"]
+[node name="EKey" type="TextureRect" parent="InteractHint"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -75,7 +75,6 @@ texture = ExtResource("3_5ysmq")
 expand_mode = 1
 
 [node name="LeaveHint" type="Label" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -93,7 +92,7 @@ text = "Escape"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="LeaveHint"]
+[node name="EKey" type="TextureRect" parent="LeaveHint"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -105,8 +104,3 @@ offset_bottom = 10.5
 grow_vertical = 2
 texture = ExtResource("3_5ysmq")
 expand_mode = 1
-
-[node name="Label" type="Label" parent="LeaveHint"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
