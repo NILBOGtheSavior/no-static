@@ -88,6 +88,7 @@ func handle_movement(delta):
 	
 	velocity = lerp(velocity, target_velocity, delta * friction)
 
+
 func reset_camera():
 	var camera_target = $RotationHelper/Marker3D
 	camera.global_position = camera_target.global_position

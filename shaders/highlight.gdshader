@@ -15,6 +15,7 @@ void fragment() {
 	vec3 highlight_color = vec3(0.25, 1.0, 0.25);
 
     ALBEDO = mix(base_color, highlight_color, highlight_strength);
+	EMISSION = mix(base_color, highlight_color, highlight_strength);
 }
 
 //void light() {
