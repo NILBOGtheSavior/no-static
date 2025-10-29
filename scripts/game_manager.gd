@@ -7,7 +7,7 @@ var max_health : float = 25.0
 
 var min_time = 2.0
 var max_time = 10.0
-var max_score = 150
+var difficulty_multiplier = 500
 
 var tvs : Array
 
@@ -33,8 +33,10 @@ func posess_tv():
 
 func get_timer_duration(score: float) -> float:
 	# Linear mapping: higher score → shorter duration
-	var t = clamp(score / max_score, 0.0, 1.0)
-	return lerp(max_time, min_time, t)
+	var a = clamp(score / difficulty_multiplier, 0.0, 1.0)
+	var time = lerp(max_time, min_time, pow(a, -0.5))
+	print(time)
+	return time
 	
 	
 	

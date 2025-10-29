@@ -92,7 +92,7 @@ Additional procedural textures were generated using custom **shader-based noise 
 
 ## Future Improvements
 
-- [ ] Balance scaling (logarithmic instead of linear)
+- [X] Balance scaling (inverse-square instead of linear)
 - [ ] Add diverse TVs with different tuning systems
 - [ ] Improve lighting (flicker, godrays, post-processing)
 - [ ] Add tutorial with a backstory

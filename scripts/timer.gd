@@ -1,7 +1,5 @@
 extends Timer
 
-
-
 func _ready() -> void:
 	GameManager.tvs = get_tree().get_nodes_in_group("tv_objects")
 	self.start(5)
@@ -17,8 +15,6 @@ func _on_timeout() -> void:
 		if tv.tune_distance < 0:
 			tv.tune_distance -= 1
 	self.start(GameManager.get_timer_duration(GameManager.score))
-
-
 
 func check_health():
 	var health = 0

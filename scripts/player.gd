@@ -50,7 +50,7 @@ func _physics_process(delta: float) -> void:
 		handle_movement(delta)
 	else:
 		GameManager.cursor_enabled = true
-	move_and_slide()
+	
 	
 func _input(event):
 	if event is InputEventMouseMotion and GameManager.cursor_enabled == false and GameManager.active_object == null:
@@ -86,6 +86,7 @@ func handle_movement(delta):
 	target_velocity.z = dir.z * walking_speed
 	
 	velocity = lerp(velocity, target_velocity, delta * friction)
+	move_and_slide()
 
 
 func reset_camera():
