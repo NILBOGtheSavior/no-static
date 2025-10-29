@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://ptwfvqv66eqo"]
+
+[resource]
+resource_local_to_scene = true
+emission_enabled = true
+emission = Color(0.9411765, 0.9411765, 1, 1)
+emission_energy_multiplier = 0.0

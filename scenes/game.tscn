@@ -29,6 +29,13 @@ script = ExtResource("1_p57ef")
 
 [node name="HUD" parent="." instance=ExtResource("6_p57ef")]
 
+[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.0416813, 2.7285984)
+visible = false
+light_energy = 0.1
+shadow_enabled = true
+omni_range = 8.582418
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_lnu2h")
 
@@ -37,12 +44,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="WorldEnvironment/Ground"]
 shape = SubResource("WorldBoundaryShape3D_yqjtg")
-
-[node name="OmniLight3D" type="OmniLight3D" parent="WorldEnvironment"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.0416813, 2.7285984)
-light_energy = 0.1
-shadow_enabled = true
-omni_range = 8.582418
 
 [node name="Player" parent="." instance=ExtResource("1_uwrxv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
