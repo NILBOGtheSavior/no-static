@@ -346,6 +346,7 @@ skeleton = NodePath("")
 surface_material_override/0 = ExtResource("2_5djif")
 
 [node name="Colliders" type="StaticBody3D" parent="."]
+visible = false
 collision_layer = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Colliders"]
@@ -430,6 +431,7 @@ transform = Transform3D(-0.22503597, 0, -0.97435045, 0, 1, 0, 0.97435045, 0, -0.
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.484357, 2.8859043)
 light_color = Color(0.9411765, 0.9411765, 1, 1)
 light_energy = 0.1
+light_specular = 1.0
 light_cull_mask = 4294967293
 shadow_enabled = true
 omni_range = 10.0
@@ -449,6 +451,7 @@ surface_material_override/1 = SubResource("StandardMaterial3D_jjmmj")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.484357, -2.45985)
 light_color = Color(0.9411765, 0.9411765, 1, 1)
 light_energy = 0.1
+light_specular = 1.0
 light_cull_mask = 4294967293
 shadow_enabled = true
 omni_range = 10.0

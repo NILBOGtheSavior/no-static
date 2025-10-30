@@ -6,9 +6,9 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_oo0fn"]
 shader = ExtResource("1_ahhtf")
-shader_parameter/time_speed = 1.0
+shader_parameter/noise_speed = 2.5
 shader_parameter/noise_strength = 0.0
-shader_parameter/noise_scale = 50.0
+shader_parameter/noise_scale = 150.0
 
 [node name="HUD" type="Control"]
 layout_mode = 3
@@ -75,6 +75,7 @@ texture = ExtResource("3_5ysmq")
 expand_mode = 1
 
 [node name="LeaveHint" type="Label" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0

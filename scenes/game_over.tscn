@@ -15,7 +15,8 @@ size = Vector2(20, 20)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8ln24"]
 render_priority = 0
 shader = ExtResource("3_8bugq")
-shader_parameter/scale = 250.0
+shader_parameter/scale = 100.0
+shader_parameter/brightness = 0.2
 
 [node name="GameOver" type="Node"]
 

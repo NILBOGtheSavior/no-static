@@ -2,7 +2,7 @@ shader_type canvas_item;
 
 uniform sampler2D SCREEN_TEXTURE : hint_screen_texture, filter_linear_mipmap;
 
-uniform float time_speed = 1.0;
+uniform float noise_speed = 2.5;
 uniform float noise_strength : hint_range(0, 1) = 0.0;
 
 uniform float noise_scale = 50.0;
@@ -17,17 +17,15 @@ void vertex() {
 
 void fragment() {
 	// Called for every pixel the material is visible on.
-	// normalized screen UV (0..1)
-    vec2 uv = SCREEN_UV;   // or use UV if your ColorRect fills the whole screen
+    vec2 uv = SCREEN_UV;
+	vec2 noise_uv = SCREEN_UV;
+	noise_uv.x *= SCREEN_PIXEL_SIZE.y / SCREEN_PIXEL_SIZE.x;
 
-    // procedural noise (scale controls "grain" size)
-    float n = rand(uv * noise_scale + vec2(TIME * time_speed, 0.0));
+    float n = rand(floor(noise_uv * noise_scale) + vec2(TIME * noise_speed, 0.0));
     vec3 noise_col = vec3(n);
 
-    // sample what's already on screen behind the overlay
     vec3 screen_col = texture(SCREEN_TEXTURE, uv).rgb;
 
-    // blend noise with the scene based on noise_strength
     vec3 out_col = mix(screen_col, noise_col, noise_strength);
 
     COLOR = vec4(out_col, 1.0);
