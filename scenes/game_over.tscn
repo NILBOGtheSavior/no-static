@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://cgmlag07bcito"]
 
 [ext_resource type="Script" uid="uid://camj3eol0mkr3" path="res://scripts/game_over.gd" id="2_racf3"]
-[ext_resource type="Shader" uid="uid://dwgel3d3daqn5" path="res://shaders/menu_static.gdshader" id="3_8bugq"]
+[ext_resource type="Shader" uid="uid://dwgel3d3daqn5" path="res://shaders/spacial_static.gdshader" id="3_8bugq"]
 [ext_resource type="Texture2D" uid="uid://bd87v8p2ymr6c" path="res://assets/images/title.png" id="5_56v3a"]
 [ext_resource type="AudioStream" uid="uid://jy1sov2bmjxe" path="res://assets/audio/static.ogg" id="7_uq3qu"]
 

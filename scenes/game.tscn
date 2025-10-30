@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://ducooq07g45y2" path="res://scenes/static_and_co.tscn" id="3_iywne"]
 [ext_resource type="Script" uid="uid://c7pwof6p0k0vh" path="res://scripts/timer.gd" id="5_iywne"]
 [ext_resource type="PackedScene" uid="uid://bkpbvk4vksulv" path="res://scenes/hud.tscn" id="6_p57ef"]
-[ext_resource type="Shader" uid="uid://dwgel3d3daqn5" path="res://shaders/menu_static.gdshader" id="8_gee14"]
+[ext_resource type="Shader" uid="uid://dwgel3d3daqn5" path="res://shaders/spacial_static.gdshader" id="8_gee14"]
 
 [sub_resource type="Environment" id="Environment_lnu2h"]
 background_mode = 1
@@ -17,12 +17,13 @@ volumetric_fog_albedo = Color(0, 0, 0, 1)
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_yqjtg"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_0tnpc"]
-size = Vector2(20, 20)
+size = Vector2(10, 7.5)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vtaks"]
 render_priority = 0
 shader = ExtResource("8_gee14")
-shader_parameter/scale = 250.0
+shader_parameter/scale = 150.0
+shader_parameter/brightness = 0.2
 
 [node name="Game" type="Node"]
 script = ExtResource("1_p57ef")
@@ -55,13 +56,8 @@ script = ExtResource("5_iywne")
 
 [node name="StaticAndCo" parent="." instance=ExtResource("3_iywne")]
 
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 7.4427485, -5.968952)
-light_energy = 0.3
-omni_range = 10.43123
-
 [node name="OuterNoise" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, -7.972543)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 1.9774041, -5.972543)
 mesh = SubResource("PlaneMesh_0tnpc")
 surface_material_override/0 = SubResource("ShaderMaterial_vtaks")
 

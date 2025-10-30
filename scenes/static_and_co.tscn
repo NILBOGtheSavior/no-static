@@ -138,3 +138,7 @@ light_energy = 0.1
 shadow_enabled = true
 omni_range = 10.0
 omni_attenuation = 1.5
+
+[node name="Timer" type="Timer" parent="." index="11"]
+
+[node name="Timer001" type="Timer" parent="." index="12"]
