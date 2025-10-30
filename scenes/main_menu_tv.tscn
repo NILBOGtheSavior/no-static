@@ -4,9 +4,9 @@
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p8342"]
 albedo_color = Color(0, 0, 0, 1)
-metallic = 0.75
+metallic = 0.5
 metallic_specular = 1.0
-roughness = 0.25
+roughness = 0.1
 
 [node name="yoshiba_tv" instance=ExtResource("1_p8342")]
 

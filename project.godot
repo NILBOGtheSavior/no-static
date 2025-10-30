@@ -66,6 +66,8 @@ select_item={
 
 [layer_names]
 
+3d_render/layer_1="PhysicalSpace"
+3d_render/layer_2="StaticSpace"
 3d_physics/layer_1="player"
 3d_physics/layer_2="objects"
 3d_physics/layer_3="environment"

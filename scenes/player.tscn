@@ -20,6 +20,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 
 [node name="RayCast3D" type="RayCast3D" parent="RotationHelper/Camera3D"]
 target_position = Vector3(0, 0, -5)
+collision_mask = 3
 
 [node name="OmniLight3D" type="OmniLight3D" parent="RotationHelper/Camera3D"]
 light_energy = 0.2
