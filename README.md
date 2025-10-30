@@ -94,7 +94,7 @@ Additional procedural textures were generated using custom **shader-based noise 
 
 - [X] Balance scaling (inverse-square instead of linear)
 - [ ] Add diverse TVs with different tuning systems
-- [ ] Improve lighting (flicker, godrays, post-processing)
+- [ ] Improve lighting (~~flicker~~, godrays, post-processing)
 - [ ] Add tutorial with a backstory
 - [ ] Add configurable settings
 - [ ] Decorate the store and make the environment more appealing
