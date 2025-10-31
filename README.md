@@ -94,10 +94,10 @@ Additional procedural textures were generated using custom **shader-based noise 
 
 - [X] Balance scaling (inverse-square instead of linear)
 - [ ] Add diverse TVs with different tuning systems
-- [ ] Improve lighting (~~flicker~~, godrays, post-processing)
+- [X] Improve lighting (~~flicker~~, ~~god rays~~, ~~post-processing~~)
 - [ ] Add tutorial with a backstory
 - [ ] Add configurable settings
 - [ ] Decorate the store and make the environment more appealing
 - [ ] Improve UI (themed buttons)
-- [ ] Add dynamic sound design (radio chatter, environmental ambience)
+- [ ] Add dynamic sound design (foot steps, button clicks)
 - [ ] Expand lore through environmental storytelling
