@@ -30,17 +30,17 @@ class LightUnit:
 		
 	func flicker():
 		flicker_cycles = randi_range(5, 15)
-		timer.start(randf_range(1.0, 10.0))
+		timer.start(randf_range(1.0, 5.0))
 	
 	func flicker_cycle():
 		if flicker_cycles:
 			flicker_cycles -= 1
 			var energy = randf()
-			material.emission_energy_multiplier = energy * 5.0
-			light.light_energy = energy * 0.2
+			material.emission_energy_multiplier = energy
+			light.light_energy = energy * 0.1
 			timer.start(randf_range(0.05, 0.1))
 		else:
-			material.emission_energy_multiplier = 5.0
-			light.light_energy = 0.2
+			material.emission_energy_multiplier = 1
+			light.light_energy = 0.1
 			flicker()
 			

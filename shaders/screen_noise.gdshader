@@ -2,6 +2,7 @@ shader_type spatial;
 render_mode blend_mix, depth_draw_opaque, cull_back, diffuse_burley, specular_schlick_ggx;
 
 uniform float noise_strength : hint_range(0.0, 1.0) = 0.0;
+uniform float noise_scale : hint_range(0.0, 500.0) = 0.0;
 
 uniform vec4 albedo : source_color;
 uniform sampler2D texture_albedo : source_color, filter_linear_mipmap, repeat_enable;
@@ -36,7 +37,7 @@ void vertex() {
 void fragment() {
 	vec2 uv = UV;
 	
-	float noise_val = rand(uv + vec2(TIME * 10.0, 0.0));
+	float noise_val = rand(floor(uv * noise_scale) + vec2(TIME * 10.0, 0.0));
 	vec3 noise_tex = vec3(noise_val);
 
 	vec4 albedo_tex = texture(texture_albedo, uv);

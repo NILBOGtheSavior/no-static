@@ -10,10 +10,23 @@
 [sub_resource type="Environment" id="Environment_lnu2h"]
 background_mode = 1
 ambient_light_energy = 2.5
+reflected_light_source = 1
+tonemap_mode = 2
 ssr_max_steps = 32
+ssao_enabled = true
+sdfgi_energy = 0.0
 glow_enabled = true
-glow_intensity = 1.5
-volumetric_fog_albedo = Color(0, 0, 0, 1)
+glow_normalized = true
+glow_intensity = 0.46
+glow_strength = 0.76
+glow_bloom = 0.2
+glow_blend_mode = 1
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.1
+volumetric_fog_anisotropy = 0.6
+adjustment_enabled = true
+adjustment_brightness = 1.5
+adjustment_contrast = 1.1
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_yqjtg"]
 
