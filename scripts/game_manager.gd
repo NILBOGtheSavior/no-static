@@ -3,7 +3,7 @@ extends Node
 var score = 0
 var health : float
 var min_health : float = 10.0
-var max_health : float = 25.0
+var max_health : float = 5000.0
 
 var min_time = 2.0
 var max_time = 10.0

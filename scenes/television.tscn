@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://b5x1wy5qvk8he"]
 
-[ext_resource type="Script" uid="uid://sqkno4vgx0wy" path="res://scripts/tv.gd" id="1_yog0n"]
-[ext_resource type="PackedScene" uid="uid://mr462igvblrw" path="res://scenes/yoshiba_tv.tscn" id="2_pncf4"]
+[ext_resource type="Script" uid="uid://sqkno4vgx0wy" path="res://scripts/television.gd" id="1_3fxiq"]
+[ext_resource type="PackedScene" uid="uid://mr462igvblrw" path="res://scenes/yoshiba_tv.tscn" id="2_qcggj"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_t2e77"]
 size = Vector3(0.5002136, 0.5, 0.50024414)
@@ -9,16 +9,16 @@ size = Vector3(0.5002136, 0.5, 0.50024414)
 [sub_resource type="BoxShape3D" id="BoxShape3D_pncf4"]
 size = Vector3(0.15144348, 0.1574707, 0.1517334)
 
-[node name="BoxyCRT" type="StaticBody3D" groups=["tv_objects"]]
+[node name="Television" type="StaticBody3D" groups=["tv_objects"]]
 collision_layer = 3
 collision_mask = 0
-script = ExtResource("1_yog0n")
+script = ExtResource("1_3fxiq")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00065612793, 0.5, 0.0015869141)
 shape = SubResource("BoxShape3D_t2e77")
 
-[node name="yoshiba_tv" parent="CollisionShape3D" instance=ExtResource("2_pncf4")]
+[node name="yoshiba_tv" parent="CollisionShape3D" instance=ExtResource("2_qcggj")]
 
 [node name="ButtonUpArea" type="Area3D" parent="CollisionShape3D"]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.14069496, -0.4173489, 0.49390978)
@@ -36,6 +36,9 @@ shape = SubResource("BoxShape3D_pncf4")
 
 [node name="Marker3D" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 1.1952487)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.360932, 0.4624219, 0)
 
 [connection signal="input_event" from="CollisionShape3D/ButtonUpArea" to="." method="_on_button_up_area_input_event"]
 [connection signal="mouse_entered" from="CollisionShape3D/ButtonUpArea" to="." method="_on_button_up_area_mouse_entered"]

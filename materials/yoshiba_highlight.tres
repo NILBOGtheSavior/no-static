@@ -7,5 +7,5 @@
 render_priority = 0
 shader = ExtResource("1_1rvc0")
 shader_parameter/tex = ExtResource("2_chhyq")
-shader_parameter/highlight_strength = 0.010000000475
+shader_parameter/highlight_strength = 0.02
 shader_parameter/time_speed = 2.0

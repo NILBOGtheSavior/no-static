@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://kv3vxv4f13ao"]
+
+[ext_resource type="Shader" uid="uid://t2j3kpa2dwv4" path="res://shaders/highlight.gdshader" id="1_yns5i"]
+[ext_resource type="Texture2D" uid="uid://bibv5onbd72jo" path="res://assets/models/mitachi_tv_mitachi_base_color.png" id="2_7gg6v"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_yns5i")
+shader_parameter/tex = ExtResource("2_7gg6v")
+shader_parameter/highlight_strength = 0.02
+shader_parameter/time_speed = 2.0
