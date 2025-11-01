@@ -38,15 +38,15 @@ func _on_button_up_area_input_event(camera: Node, event: InputEvent, event_posit
 	if event is InputEventMouseButton and event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:
 		tune_distance += 1
 
-func _on_button_down_area_input_event(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
-	if event is InputEventMouseButton and event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:
-		tune_distance -= 1
-
 func _on_button_up_area_mouse_entered() -> void:
 	button_up = true
 
 func _on_button_up_area_mouse_exited() -> void:
 	button_up = false
+
+func _on_button_down_area_input_event(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
+	if event is InputEventMouseButton and event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:
+		tune_distance -= 1
 
 func _on_button_down_area_mouse_entered() -> void:
 	button_down = true

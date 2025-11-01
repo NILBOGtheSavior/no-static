@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://drwe5pkfglhkf"]
 
-[ext_resource type="Shader" uid="uid://ci34tnj2lenby" path="res://shaders/tv_screen.gdshader" id="1_b5gmj"]
+[ext_resource type="Shader" path="res://shaders/tv_screen.gdshader" id="1_b5gmj"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_dbydt"]
 viewport_path = NodePath("Video/SubViewport")
@@ -12,6 +12,8 @@ viewport_path = NodePath("Video/SubViewport")
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("1_b5gmj")
+shader_parameter/noise_strength = 0.0
+shader_parameter/noise_scale = 50.0
 shader_parameter/albedo = Color(1, 1, 1, 1)
 shader_parameter/texture_albedo = SubResource("ViewportTexture_dbydt")
 shader_parameter/albedo_texture_size = Vector2i(0, 0)

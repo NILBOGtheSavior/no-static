@@ -16,14 +16,6 @@ var posessed : bool = false
 
 var tune_distance : int = 0
 
-func _ready() -> void:
-	#screen_mesh = $Video
-	#video_player = $Video/SubViewport/VideoStreamPlayer
-	#movie_audio_player = $MovieAudio
-	#static_audio_player = $StaticAudio
-	pass
-	
-
 func _process(delta: float) -> void:
 	noise_strength = lerp(noise_strength, abs(tune_distance) / 10.0, delta * 5)
 	screen_mat.set_shader_parameter("noise_strength", noise_strength)

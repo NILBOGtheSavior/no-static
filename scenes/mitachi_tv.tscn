@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://br0vxo2ryovg7"]
+[gd_scene load_steps=30 format=4 uid="uid://br0vxo2ryovg7"]
 
 [ext_resource type="Script" uid="uid://dxpck5ja74yxm" path="res://scripts/mitachi_tv.gd" id="1_n4ids"]
 [ext_resource type="Texture2D" uid="uid://bibv5onbd72jo" path="res://assets/models/mitachi_tv_mitachi_base_color.png" id="2_n4ids"]
@@ -7,6 +7,9 @@
 [ext_resource type="VideoStream" uid="uid://bt8tlpsxnc72m" path="res://assets/video/carnival.ogv" id="5_rfqxn"]
 [ext_resource type="AudioStream" uid="uid://bnyxnwp7vd7a" path="res://assets/audio/carnival.ogg" id="6_4dvvw"]
 [ext_resource type="AudioStream" uid="uid://jy1sov2bmjxe" path="res://assets/audio/static.ogg" id="7_066f7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8bv5h"]
+size = Vector3(1.9985352, 2.00531, 1.9987793)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6hisl"]
 resource_name = "Mitachi"
@@ -47,6 +50,10 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_kjshs")
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_n4ids"]
+height = 0.107421875
+radius = 0.038085938
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_noypc"]
 _surfaces = [{
@@ -320,9 +327,6 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_qa4ln")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_8bv5h"]
-size = Vector3(1.9985352, 2.00531, 1.9987793)
-
 [sub_resource type="PlaneMesh" id="PlaneMesh_dbydt"]
 size = Vector2(1.805, 1.52)
 
@@ -335,42 +339,88 @@ video_player = NodePath("Video/SubViewport/VideoStreamPlayer")
 movie_audio_player = NodePath("MovieAudio")
 static_audio_player = NodePath("StaticAudio")
 
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.031615287, -0.0066833496, -0.00012206864)
+shape = SubResource("BoxShape3D_8bv5h")
+
 [node name="TVMesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
 mesh = SubResource("ArrayMesh_cpime")
 skeleton = NodePath("")
 
-[node name="Channel1" type="MeshInstance3D" parent="TVMesh"]
+[node name="Channel1Area" type="Area3D" parent="TVMesh"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TVMesh/Channel1Area"]
+transform = Transform3D(-4.3711385e-08, 1, 4.3711392e-08, -1, -4.371139e-08, 4.3711385e-08, 4.371139e-08, -4.371139e-08, 1, 0.9284508, -0.8655203, 0.36958805)
+shape = SubResource("CylinderShape3D_n4ids")
+
+[node name="Channel1" type="MeshInstance3D" parent="TVMesh/Channel1Area"]
 transform = Transform3D(0, 0.011125871, 0, -0.03408879, 0, 0, 0, 0, 0.021931777, 0.96440494, -0.8664973, 0.3689801)
 mesh = SubResource("ArrayMesh_dd06e")
 skeleton = NodePath("")
 
-[node name="Channel2" type="MeshInstance3D" parent="TVMesh"]
+[node name="Channel2Area" type="Area3D" parent="TVMesh"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TVMesh/Channel2Area"]
+transform = Transform3D(-4.3711385e-08, 1, 4.3711392e-08, -1, -4.371139e-08, 4.3711385e-08, 4.371139e-08, -4.371139e-08, 1, 0.9284508, -0.8655203, 0.28222236)
+shape = SubResource("CylinderShape3D_n4ids")
+
+[node name="Channel2" type="MeshInstance3D" parent="TVMesh/Channel2Area"]
 transform = Transform3D(0, 0.011125871, 0, -0.03408879, 0, 0, 0, 0, 0.021931777, 0.96440494, -0.8664973, 0.3689801)
 mesh = SubResource("ArrayMesh_xn74h")
 skeleton = NodePath("")
 
-[node name="Channel3" type="MeshInstance3D" parent="TVMesh"]
+[node name="Channel3Area" type="Area3D" parent="TVMesh"]
+
+[node name="Channel3" type="MeshInstance3D" parent="TVMesh/Channel3Area"]
 transform = Transform3D(0, 0.011125871, 0, -0.03408879, 0, 0, 0, 0, 0.021931777, 0.96440494, -0.8664973, 0.3689801)
 mesh = SubResource("ArrayMesh_rfqxn")
 skeleton = NodePath("")
 
-[node name="Channel4" type="MeshInstance3D" parent="TVMesh"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TVMesh/Channel3Area"]
+transform = Transform3D(-4.3711385e-08, 1, 4.3711392e-08, -1, -4.371139e-08, 4.3711385e-08, 4.371139e-08, -4.371139e-08, 1, 0.9284508, -0.8655203, 0.19485672)
+shape = SubResource("CylinderShape3D_n4ids")
+
+[node name="Channel4Area" type="Area3D" parent="TVMesh"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TVMesh/Channel4Area"]
+transform = Transform3D(-4.3711385e-08, 1, 4.3711392e-08, -1, -4.371139e-08, 4.3711385e-08, 4.371139e-08, -4.371139e-08, 1, 0.9284508, -0.8655203, 0.10618713)
+shape = SubResource("CylinderShape3D_n4ids")
+
+[node name="Channel4" type="MeshInstance3D" parent="TVMesh/Channel4Area"]
 transform = Transform3D(0, 0.011125871, 0, -0.03408879, 0, 0, 0, 0, 0.021931777, 0.96440494, -0.8664973, 0.3689801)
 mesh = SubResource("ArrayMesh_4dvvw")
 skeleton = NodePath("")
 
-[node name="Channel5" type="MeshInstance3D" parent="TVMesh"]
+[node name="Channel5Area" type="Area3D" parent="TVMesh"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TVMesh/Channel5Area"]
+transform = Transform3D(-4.3711385e-08, 1, 4.3711392e-08, -1, -4.371139e-08, 4.3711385e-08, 4.371139e-08, -4.371139e-08, 1, 0.9284508, -0.8655203, 0.01838686)
+shape = SubResource("CylinderShape3D_n4ids")
+
+[node name="Channel5" type="MeshInstance3D" parent="TVMesh/Channel5Area"]
 transform = Transform3D(0, 0.011125871, 0, -0.03408879, 0, 0, 0, 0, 0.021931777, 0.96440494, -0.8664973, 0.3689801)
 mesh = SubResource("ArrayMesh_066f7")
 skeleton = NodePath("")
 
-[node name="Channel6" type="MeshInstance3D" parent="TVMesh"]
+[node name="Channel6Area" type="Area3D" parent="TVMesh"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TVMesh/Channel6Area"]
+transform = Transform3D(-4.3711385e-08, 1, 4.3711392e-08, -1, -4.371139e-08, 4.3711385e-08, 4.371139e-08, -4.371139e-08, 1, 0.9284508, -0.8655203, -0.06854407)
+shape = SubResource("CylinderShape3D_n4ids")
+
+[node name="Channel6" type="MeshInstance3D" parent="TVMesh/Channel6Area"]
 transform = Transform3D(0, 0.011125871, 0, -0.03408879, 0, 0, 0, 0, 0.021931777, 0.96440494, -0.8664973, 0.3689801)
 mesh = SubResource("ArrayMesh_yl28g")
 skeleton = NodePath("")
 
-[node name="Channel7" type="MeshInstance3D" parent="TVMesh"]
+[node name="Channel7Area" type="Area3D" parent="TVMesh"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TVMesh/Channel7Area"]
+transform = Transform3D(-4.3711385e-08, 1, 4.3711392e-08, -1, -4.371139e-08, 4.3711385e-08, 4.371139e-08, -4.371139e-08, 1, 0.9284508, -0.8655203, -0.15721373)
+shape = SubResource("CylinderShape3D_n4ids")
+
+[node name="Channel7" type="MeshInstance3D" parent="TVMesh/Channel7Area"]
 transform = Transform3D(0, 0.011125871, 0, -0.03408879, 0, 0, 0, 0, 0.021931777, 0.96440494, -0.8664973, 0.3689801)
 mesh = SubResource("ArrayMesh_toeho")
 skeleton = NodePath("")
@@ -378,10 +428,6 @@ skeleton = NodePath("")
 [node name="Screen" type="MeshInstance3D" parent="TVMesh"]
 mesh = SubResource("ArrayMesh_0bfcp")
 skeleton = NodePath("")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.006591797, -0.0066833496, -0.00012207031)
-shape = SubResource("BoxShape3D_8bv5h")
 
 [node name="Video" type="MeshInstance3D" parent="."]
 transform = Transform3D(-2.1855694e-08, 0.5, -2.1855694e-08, 0, -2.1855694e-08, -0.5, -0.5, -2.1855694e-08, 9.553427e-16, 0.45102245, 0.051953748, 0)
@@ -435,3 +481,25 @@ light_cull_mask = 4294967294
 spot_range = 4.0499024
 spot_attenuation = 2.0
 spot_angle = 43.13
+
+[connection signal="input_event" from="TVMesh/Channel1Area" to="." method="_on_channel_1_area_input_event"]
+[connection signal="mouse_entered" from="TVMesh/Channel1Area" to="." method="_on_channel_1_area_mouse_entered"]
+[connection signal="mouse_exited" from="TVMesh/Channel1Area" to="." method="_on_channel_1_area_mouse_exited"]
+[connection signal="input_event" from="TVMesh/Channel2Area" to="." method="_on_channel_2_area_input_event"]
+[connection signal="mouse_entered" from="TVMesh/Channel2Area" to="." method="_on_channel_2_area_mouse_entered"]
+[connection signal="mouse_exited" from="TVMesh/Channel2Area" to="." method="_on_channel_2_area_mouse_exited"]
+[connection signal="input_event" from="TVMesh/Channel3Area" to="." method="_on_channel_3_area_input_event"]
+[connection signal="mouse_entered" from="TVMesh/Channel3Area" to="." method="_on_channel_3_area_mouse_entered"]
+[connection signal="mouse_exited" from="TVMesh/Channel3Area" to="." method="_on_channel_3_area_mouse_exited"]
+[connection signal="input_event" from="TVMesh/Channel4Area" to="." method="_on_channel_4_area_input_event"]
+[connection signal="mouse_entered" from="TVMesh/Channel4Area" to="." method="_on_channel_4_area_mouse_entered"]
+[connection signal="mouse_exited" from="TVMesh/Channel4Area" to="." method="_on_channel_4_area_mouse_exited"]
+[connection signal="input_event" from="TVMesh/Channel5Area" to="." method="_on_channel_5_area_input_event"]
+[connection signal="mouse_entered" from="TVMesh/Channel5Area" to="." method="_on_channel_5_area_mouse_entered"]
+[connection signal="mouse_exited" from="TVMesh/Channel5Area" to="." method="_on_channel_5_area_mouse_exited"]
+[connection signal="input_event" from="TVMesh/Channel6Area" to="." method="_on_channel_6_area_input_event"]
+[connection signal="mouse_entered" from="TVMesh/Channel6Area" to="." method="_on_channel_6_area_mouse_entered"]
+[connection signal="mouse_exited" from="TVMesh/Channel6Area" to="." method="_on_channel_6_area_mouse_exited"]
+[connection signal="input_event" from="TVMesh/Channel7Area" to="." method="_on_channel_7_area_input_event"]
+[connection signal="mouse_entered" from="TVMesh/Channel7Area" to="." method="_on_channel_7_area_mouse_entered"]
+[connection signal="mouse_exited" from="TVMesh/Channel7Area" to="." method="_on_channel_7_area_mouse_exited"]
