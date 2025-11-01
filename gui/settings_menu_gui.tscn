@@ -1,0 +1,117 @@
+[gd_scene load_steps=3 format=3 uid="uid://csuxnsld3c1ee"]
+
+[ext_resource type="FontFile" uid="uid://vafp7bty02l5" path="res://assets/fonts/VT323.ttf" id="1_h8t4l"]
+[ext_resource type="Texture2D" uid="uid://da5yerf8ytpia" path="res://assets/images/back.png" id="2_k75qk"]
+
+[node name="SettingsMenuGUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SettingsLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -375.0
+offset_top = 144.0
+offset_right = 375.0
+offset_bottom = 209.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("1_h8t4l")
+theme_override_font_sizes/font_size = 64
+text = "Settings"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="MenuContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -375.0
+offset_top = -217.5
+offset_right = 375.0
+offset_bottom = 217.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(375, 0)
+theme_override_constants/separation = 25
+
+[node name="MouseSensitivityLabel" type="Label" parent="MenuContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_h8t4l")
+theme_override_font_sizes/font_size = 48
+text = "Mouse Sensitivity"
+horizontal_alignment = 1
+
+[node name="MouseSensitivitySlider" type="HSlider" parent="MenuContainer"]
+layout_mode = 2
+min_value = 0.005
+max_value = 0.1
+step = 0.005
+value = 0.049999999999999996
+
+[node name="MasterVolumeLabel" type="Label" parent="MenuContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_h8t4l")
+theme_override_font_sizes/font_size = 48
+text = "Master Volume"
+horizontal_alignment = 1
+
+[node name="MasterVolumeSlider" type="HSlider" parent="MenuContainer"]
+layout_mode = 2
+min_value = 0.005
+max_value = 0.1
+step = 0.005
+value = 0.049999999999999996
+
+[node name="MainMenuVolumeLabel" type="Label" parent="MenuContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_h8t4l")
+theme_override_font_sizes/font_size = 48
+text = "Main Menu Volume"
+horizontal_alignment = 1
+
+[node name="MainMenuVolumeSlider" type="HSlider" parent="MenuContainer"]
+layout_mode = 2
+min_value = 0.005
+max_value = 0.1
+step = 0.005
+value = 0.049999999999999996
+
+[node name="GameVolumeLabel" type="Label" parent="MenuContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_h8t4l")
+theme_override_font_sizes/font_size = 48
+text = "Game Volume"
+horizontal_alignment = 1
+
+[node name="GameVolumeSlider" type="HSlider" parent="MenuContainer"]
+layout_mode = 2
+min_value = 0.005
+max_value = 0.1
+step = 0.005
+value = 0.049999999999999996
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+offset_left = 40.0
+offset_top = 40.0
+offset_right = 106.0
+offset_bottom = 106.0
+
+[node name="TextureRect" type="TextureRect" parent="Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_k75qk")
+expand_mode = 1

@@ -1,6 +1,6 @@
 extends Node
 
-var pause_menu_scene = preload("res://scenes/pause_menu.tscn")
+var pause_menu_scene = preload("res://gui/pause_menu_gui.tscn")
 var pause_menu
 
 func _ready() -> void:

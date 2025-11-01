@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dyhj74btkdmv4" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://ducooq07g45y2" path="res://scenes/static_and_co.tscn" id="3_iywne"]
 [ext_resource type="Script" uid="uid://c7pwof6p0k0vh" path="res://scripts/timer.gd" id="5_iywne"]
-[ext_resource type="PackedScene" uid="uid://bkpbvk4vksulv" path="res://scenes/hud.tscn" id="6_p57ef"]
+[ext_resource type="PackedScene" uid="uid://bkpbvk4vksulv" path="res://gui/hud.tscn" id="6_p57ef"]
 [ext_resource type="Shader" uid="uid://dwgel3d3daqn5" path="res://shaders/spacial_static.gdshader" id="8_gee14"]
 
 [sub_resource type="Environment" id="Environment_lnu2h"]
