@@ -1,0 +1,71 @@
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://dye1f3e3ioxr2"]
+
+[ext_resource type="Texture2D" uid="uid://riuc1yjgow4c" path="res://assets/images/slider.png" id="1_e2vrq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tlkup"]
+bg_color = Color(0.12156863, 0.6627451, 0.20784314, 0.78431374)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w8l7k"]
+bg_color = Color(0.12156863, 0.6627451, 0.20784314, 0.5882353)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.078431375, 0.48235294, 0.14117648, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e2vrq"]
+bg_color = Color(0.12156863, 0.6627451, 0.20784314, 0.78431374)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_48xe8"]
+bg_color = Color(0.07727701, 0.4827013, 0.14190987, 0.78431374)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kqivv"]
+bg_color = Color(0.12156863, 0.6627451, 0.20784314, 0.78431374)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3yx0x"]
+bg_color = Color(0.18069082, 0.90307474, 0.29585347, 0.78431374)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ui4ax"]
+content_margin_top = 15.0
+content_margin_bottom = 15.0
+bg_color = Color(0, 0, 0, 0.5882353)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[resource]
+Button/styles/focus = SubResource("StyleBoxFlat_tlkup")
+Button/styles/hover = SubResource("StyleBoxFlat_w8l7k")
+Button/styles/normal = SubResource("StyleBoxFlat_e2vrq")
+Button/styles/pressed = SubResource("StyleBoxFlat_48xe8")
+HSlider/icons/grabber = ExtResource("1_e2vrq")
+HSlider/icons/grabber_disabled = ExtResource("1_e2vrq")
+HSlider/icons/grabber_highlight = ExtResource("1_e2vrq")
+HSlider/styles/grabber_area = SubResource("StyleBoxFlat_kqivv")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxFlat_3yx0x")
+HSlider/styles/slider = SubResource("StyleBoxFlat_ui4ax")

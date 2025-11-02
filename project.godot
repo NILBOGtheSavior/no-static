@@ -35,6 +35,11 @@ window/stretch/mode="canvas_items"
 
 tv_objects=""
 
+[gui]
+
+theme/custom="uid://dye1f3e3ioxr2"
+theme/custom_font="uid://vafp7bty02l5"
+
 [input]
 
 move_left={
