@@ -96,7 +96,7 @@ Additional procedural textures were generated using custom **shader-based noise 
 - [ ] Add diverse TVs with different tuning systems
 - [X] Improve lighting (~~flicker~~, ~~god rays~~, ~~post-processing~~)
 - [ ] Add tutorial with a backstory
-- [ ] Add configurable settings
+- [X] Add configurable settings
 - [ ] Decorate the store and make the environment more appealing
 - [ ] Improve UI (themed buttons)
 - [ ] Add dynamic sound design (foot steps, button clicks)
