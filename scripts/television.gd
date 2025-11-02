@@ -13,6 +13,7 @@ var screen_shader
 
 var noise_strength : float = 0
 var posessed : bool = false
+var tuning : bool = false
 
 var tune_distance : int = 0
 
@@ -20,12 +21,12 @@ func _process(delta: float) -> void:
 	noise_strength = lerp(noise_strength, abs(tune_distance) / 10.0, delta * 5)
 	screen_mat.set_shader_parameter("noise_strength", noise_strength)
 	update_audio()
-	if tune_distance == 0 and posessed == true:
+	if tune_distance == 0 and posessed == true and tuning == false:
 		GameManager.add_score(score)
 		posessed = false
 	if tune_distance > 10:
 		tune_distance = 10
-	if tune_distance < - 10:
+	if tune_distance < -10:
 		tune_distance = -10
 	if self == GameManager.selected_object:
 		highlight(true)
@@ -49,14 +50,6 @@ func update_audio():
 	var static_db_value = lerp(-80, -25, noise_strength)
 	static_audio_player.volume_db = static_db_value
 	movie_audio_player.volume_db = movie_db_value
-
-func posess(dist : int, positive : bool):
-	if not posessed:
-		posessed = true
-		if positive:
-			tune_distance = dist
-		else:
-			tune_distance = -dist
 
 func get_marker():
 	return $Marker3D

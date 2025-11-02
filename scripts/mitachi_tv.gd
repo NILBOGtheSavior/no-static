@@ -5,6 +5,8 @@ var highlight_mat = preload("res://materials/mitachi_highlight.tres")
 
 var channel : int
 
+var tune_channel : int
+
 var channel_1_mesh : MeshInstance3D
 var channel_2_mesh : MeshInstance3D
 var channel_3_mesh : MeshInstance3D
@@ -31,6 +33,19 @@ func _ready() -> void:
 	channel_6_mesh = $TVMesh/Channel6Area/Channel6
 	channel_7_mesh = $TVMesh/Channel7Area/Channel7
 	prepare_video()
+
+func posess(dist : int, positive : bool):
+	if not posessed:
+		posessed = true
+		tune_channel = randi_range(1, 7)
+		tune_distance = dist
+
+func set_channel(num):
+	channel = num
+	if channel == tune_channel:
+		tune_distance = 0
+	else:
+		tune_distance = randi_range(3, 8)
 
 func highlight(state : bool):
 	if state:
@@ -68,7 +83,7 @@ func highlight(state : bool):
 		
 func _on_channel_1_area_input_event(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:
-		channel = 1
+		set_channel(1)
 		
 func _on_channel_1_area_mouse_entered() -> void:
 	channel_1 = true
@@ -78,7 +93,7 @@ func _on_channel_1_area_mouse_exited() -> void:
 
 func _on_channel_2_area_input_event(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:
-			channel = 2
+		set_channel(2)
 
 func _on_channel_2_area_mouse_entered() -> void:
 	channel_2 = true
@@ -88,7 +103,7 @@ func _on_channel_2_area_mouse_exited() -> void:
 
 func _on_channel_3_area_input_event(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:
-		channel = 3
+		set_channel(3)
 
 func _on_channel_3_area_mouse_entered() -> void:
 	channel_3 = true
@@ -98,7 +113,7 @@ func _on_channel_3_area_mouse_exited() -> void:
 
 func _on_channel_4_area_input_event(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:
-		channel = 4
+		set_channel(4)
 
 func _on_channel_4_area_mouse_entered() -> void:
 	channel_4 = true
@@ -108,7 +123,7 @@ func _on_channel_4_area_mouse_exited() -> void:
 
 func _on_channel_5_area_input_event(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:
-		channel = 5
+		set_channel(5)
 
 func _on_channel_5_area_mouse_entered() -> void:
 	channel_5 = true
@@ -118,7 +133,7 @@ func _on_channel_5_area_mouse_exited() -> void:
 
 func _on_channel_6_area_input_event(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:
-		channel = 6
+		set_channel(6)
 
 func _on_channel_6_area_mouse_entered() -> void:
 	channel_6 = true
@@ -128,7 +143,7 @@ func _on_channel_6_area_mouse_exited() -> void:
 
 func _on_channel_7_area_input_event(camera: Node, event: InputEvent, event_position: Vector3, normal: Vector3, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:
-		channel = 7
+		set_channel(7)
 
 func _on_channel_7_area_mouse_entered() -> void:
 	channel_7 = true

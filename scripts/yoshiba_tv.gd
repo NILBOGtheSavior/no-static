@@ -13,16 +13,19 @@ func _ready() -> void:
 	button_down_mesh = $TVMesh/ButtonDownArea/ButtonDown
 	prepare_video()
 
-
-func get_marker():
-	return $Marker3D
+func posess(dist : int, positive : bool):
+	if not posessed:
+		posessed = true
+		if positive:
+			tune_distance = dist
+		else:
+			tune_distance = -dist
 
 func highlight(state : bool):
 	if state:
 		tv_mesh.set_surface_override_material(0, highlight_mat)
 		button_up_mesh.set_surface_override_material(0, highlight_mat)
 		button_down_mesh.set_surface_override_material(0, highlight_mat)
-		
 	else:
 		tv_mesh.set_surface_override_material(0, null)
 		if button_up:

@@ -35,11 +35,14 @@ func _process(delta: float) -> void:
 		GameManager.selected_object = null
 		
 	if Input.is_action_just_pressed("select_item") and GameManager.active_object != null:
+		GameManager.active_object.tuning = false
 		GameManager.active_object = null
 		reset_camera()
 		
 	if Input.is_action_just_pressed("select_item") and GameManager.selected_object != null:
 		GameManager.active_object = GameManager.selected_object
+		GameManager.selected_object = null
+		GameManager.active_object.tuning = true
 		tune_tv(delta)
 
 func _physics_process(delta: float) -> void:
@@ -95,7 +98,6 @@ func reset_camera():
 
 func tune_tv(delta):
 	velocity = Vector3.ZERO
-	GameManager.selected_object = null
 	var camera_target = GameManager.active_object.get_marker()
 	camera.global_position = camera_target.global_position
 	camera.global_rotation = camera_target.global_rotation
