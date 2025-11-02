@@ -15,8 +15,6 @@ var raycast
 
 var allow_movement : bool = true
 
-var MOUSE_SENSITIVITY : float = 0.05
-
 func _ready() -> void:
 	camera = $RotationHelper/Camera3D
 	rotation_helper = $RotationHelper
@@ -54,8 +52,8 @@ func _physics_process(delta: float) -> void:
 	
 func _input(event):
 	if event is InputEventMouseMotion and GameManager.cursor_enabled == false and GameManager.active_object == null:
-		rotation_helper.rotate_x(deg_to_rad(event.relative.y * MOUSE_SENSITIVITY * -1))
-		self.rotate_y(deg_to_rad(event.relative.x * MOUSE_SENSITIVITY * -1))
+		rotation_helper.rotate_x(deg_to_rad(event.relative.y * GameManager.MOUSE_SENSITIVITY * -1))
+		self.rotate_y(deg_to_rad(event.relative.x * GameManager.MOUSE_SENSITIVITY * -1))
 		
 		var camera_rotation = rotation_helper.rotation_degrees
 		camera_rotation.x = clamp(camera_rotation.x, -70, 70)

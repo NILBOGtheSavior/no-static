@@ -342,5 +342,6 @@ horizontal_alignment = 1
 
 [connection signal="pressed" from="MenuContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="MenuContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="MenuContainer/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="MenuContainer/QuitToMenu" to="." method="_on_quit_to_menu_pressed"]
 [connection signal="pressed" from="MenuContainer/QuitToDesktop" to="." method="_on_quit_pressed"]

@@ -1,11 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://cch7kfiqqxx86"]
+[gd_scene load_steps=6 format=3 uid="uid://cch7kfiqqxx86"]
 
 [ext_resource type="Script" uid="uid://dgqf5f6vcgxhs" path="res://scripts/main_menu.gd" id="1_qfd26"]
 [ext_resource type="Texture2D" uid="uid://bd87v8p2ymr6c" path="res://assets/images/title.png" id="2_42l5o"]
 [ext_resource type="FontFile" uid="uid://vafp7bty02l5" path="res://assets/fonts/VT323.ttf" id="3_42l5o"]
 [ext_resource type="Theme" uid="uid://dye1f3e3ioxr2" path="res://styles/menu_button_theme.tres" id="3_fsb0b"]
 [ext_resource type="Texture2D" uid="uid://db4lyds4yfovu" path="res://assets/images/forge-mini.png" id="3_ksbxp"]
-[ext_resource type="Texture2D" uid="uid://33jffw7fy2uh" path="res://assets/images/settings-gear.png" id="5_ksbxp"]
 
 [node name="MainMenuGui" type="Control"]
 layout_mode = 3
@@ -15,50 +14,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_qfd26")
-
-[node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -325.0
-offset_top = 181.0
-offset_right = 1595.0
-offset_bottom = 1261.0
-grow_horizontal = 2
-scale = Vector2(0.35, 0.35)
-texture = ExtResource("2_42l5o")
-stretch_mode = 3
-
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -250.0
-offset_top = 10.0
-offset_right = 250.0
-offset_bottom = 160.0
-grow_horizontal = 2
-grow_vertical = 2
-pivot_offset = Vector2(250, -50)
-theme_override_constants/separation = 20
-
-[node name="Play" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-theme = ExtResource("3_fsb0b")
-theme_override_fonts/font = ExtResource("3_42l5o")
-theme_override_font_sizes/font_size = 64
-text = "PLAY"
-
-[node name="Quit" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-theme = ExtResource("3_fsb0b")
-theme_override_fonts/font = ExtResource("3_42l5o")
-theme_override_font_sizes/font_size = 64
-text = "QUIT"
 
 [node name="ForgeIcon" type="TextureRect" parent="."]
 layout_mode = 1
@@ -78,28 +33,57 @@ texture = ExtResource("3_ksbxp")
 expand_mode = 1
 stretch_mode = 2
 
-[node name="SettingsButton" type="Button" parent="."]
+[node name="GameIcon" type="TextureRect" parent="."]
 layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 40.0
-offset_top = -106.0
-offset_right = 106.0
-offset_bottom = -40.0
-grow_vertical = 0
-theme = ExtResource("3_fsb0b")
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -324.99994
+offset_top = 141.00002
+offset_right = 1595.0
+offset_bottom = 1221.0
+grow_horizontal = 2
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("2_42l5o")
+stretch_mode = 3
 
-[node name="TextureRect" type="TextureRect" parent="SettingsButton"]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -30.0
+offset_right = 250.0
+offset_bottom = 120.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("5_ksbxp")
-expand_mode = 1
+pivot_offset = Vector2(250, -50)
+theme_override_constants/separation = 20
+
+[node name="Play" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_fsb0b")
+theme_override_fonts/font = ExtResource("3_42l5o")
+theme_override_font_sizes/font_size = 64
+text = "PLAY"
+
+[node name="Settings" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_fsb0b")
+theme_override_fonts/font = ExtResource("3_42l5o")
+theme_override_font_sizes/font_size = 64
+text = "SETTINGS"
+
+[node name="Quit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_fsb0b")
+theme_override_fonts/font = ExtResource("3_42l5o")
+theme_override_font_sizes/font_size = 64
+text = "QUIT"
 
 [connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
-[connection signal="pressed" from="SettingsButton" to="." method="_on_settings_button_pressed"]

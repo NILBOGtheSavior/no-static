@@ -1,6 +1,7 @@
-[gd_scene load_steps=19 format=4 uid="uid://drvngi75kkbhq"]
+[gd_scene load_steps=20 format=4 uid="uid://drvngi75kkbhq"]
 
 [ext_resource type="Texture2D" uid="uid://ci4gx0pbxatgb" path="res://assets/models/yoshiba_tv_tv_base.png" id="1_8ln24"]
+[ext_resource type="Script" uid="uid://cx6g0omiup4v2" path="res://scripts/menu_audio.tres.gd" id="1_oa1go"]
 [ext_resource type="Shader" uid="uid://dwgel3d3daqn5" path="res://shaders/spacial_static.gdshader" id="2_bqqt6"]
 [ext_resource type="Material" uid="uid://c88vxgndvcicm" path="res://materials/main_menu_tv_glass.tres" id="2_rtw2f"]
 [ext_resource type="Script" uid="uid://b8cjv6af8yuk0" path="res://scripts/parallax.gd" id="3_8ln24"]
@@ -174,6 +175,7 @@ shader_parameter/scale = 100.0
 shader_parameter/brightness = 0.3
 
 [node name="MainMenu" type="Node3D"]
+script = ExtResource("1_oa1go")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_bqqt6")
@@ -229,8 +231,8 @@ spot_attenuation = 0.5
 spot_angle = 20.0
 spot_angle_attenuation = 0.21763763
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="StaticAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_oa1go")
 volume_db = -25.0
-autoplay = true
+bus = &"Menu"
 parameters/looping = true

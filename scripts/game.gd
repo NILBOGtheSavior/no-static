@@ -13,15 +13,17 @@ func _process(delta: float) -> void:
 		else:
 			_on_resume_game()
 
-func _on_resume_game():
-	get_tree().paused = false
-	pause_menu.queue_free()
-	pause_menu = null
-
 func _on_game_over():
 	var current_scene = get_tree().current_scene
 	current_scene.queue_free()
 	get_tree().change_scene_to_file("res://scenes/game_over.tscn")
+
+func _on_resume_game():
+	get_tree().paused = false
+	#pause_menu.queue_free()
+	pause_menu = null
+
+
 	
 func _on_restart_game():
 	get_tree().paused = false

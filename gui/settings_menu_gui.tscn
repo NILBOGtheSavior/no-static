@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://csuxnsld3c1ee"]
+[gd_scene load_steps=4 format=3 uid="uid://csuxnsld3c1ee"]
 
 [ext_resource type="FontFile" uid="uid://vafp7bty02l5" path="res://assets/fonts/VT323.ttf" id="1_h8t4l"]
-[ext_resource type="Texture2D" uid="uid://da5yerf8ytpia" path="res://assets/images/back.png" id="2_k75qk"]
+[ext_resource type="Script" uid="uid://d0tbekpbywm3v" path="res://scripts/settings.gd" id="1_ro1hg"]
+[ext_resource type="Theme" uid="uid://dye1f3e3ioxr2" path="res://styles/menu_button_theme.tres" id="3_ro1hg"]
 
 [node name="SettingsMenuGUI" type="Control"]
 layout_mode = 3
@@ -10,6 +11,16 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ro1hg")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.18431373, 0.18431373, 0.18431373, 0.78431374)
 
 [node name="SettingsLabel" type="Label" parent="."]
 layout_mode = 1
@@ -66,24 +77,18 @@ horizontal_alignment = 1
 
 [node name="MasterVolumeSlider" type="HSlider" parent="MenuContainer"]
 layout_mode = 2
-min_value = 0.005
-max_value = 0.1
-step = 0.005
-value = 0.049999999999999996
+value = 100.0
 
-[node name="MainMenuVolumeLabel" type="Label" parent="MenuContainer"]
+[node name="MenuVolumeLabel" type="Label" parent="MenuContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_h8t4l")
 theme_override_font_sizes/font_size = 48
-text = "Main Menu Volume"
+text = "Menu Volume"
 horizontal_alignment = 1
 
-[node name="MainMenuVolumeSlider" type="HSlider" parent="MenuContainer"]
+[node name="MenuVolumeSlider" type="HSlider" parent="MenuContainer"]
 layout_mode = 2
-min_value = 0.005
-max_value = 0.1
-step = 0.005
-value = 0.049999999999999996
+value = 100.0
 
 [node name="GameVolumeLabel" type="Label" parent="MenuContainer"]
 layout_mode = 2
@@ -94,24 +99,21 @@ horizontal_alignment = 1
 
 [node name="GameVolumeSlider" type="HSlider" parent="MenuContainer"]
 layout_mode = 2
-min_value = 0.005
-max_value = 0.1
-step = 0.005
-value = 0.049999999999999996
+value = 100.0
 
-[node name="Button" type="Button" parent="."]
+[node name="BackButton" type="Button" parent="."]
 layout_mode = 1
 offset_left = 40.0
 offset_top = 40.0
-offset_right = 106.0
-offset_bottom = 106.0
+offset_right = 125.0
+offset_bottom = 97.0
+theme = ExtResource("3_ro1hg")
+theme_override_fonts/font = ExtResource("1_h8t4l")
+theme_override_font_sizes/font_size = 48
+text = "BACK"
 
-[node name="TextureRect" type="TextureRect" parent="Button"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_k75qk")
-expand_mode = 1
+[connection signal="value_changed" from="MenuContainer/MouseSensitivitySlider" to="." method="_on_mouse_sensitivity_slider_value_changed"]
+[connection signal="value_changed" from="MenuContainer/MasterVolumeSlider" to="." method="_on_master_volume_slider_value_changed"]
+[connection signal="value_changed" from="MenuContainer/MenuVolumeSlider" to="." method="_on_menu_volume_slider_value_changed"]
+[connection signal="value_changed" from="MenuContainer/GameVolumeSlider" to="." method="_on_game_volume_slider_value_changed"]
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

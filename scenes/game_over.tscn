@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://cgmlag07bcito"]
+[gd_scene load_steps=8 format=3 uid="uid://cgmlag07bcito"]
 
+[ext_resource type="Script" uid="uid://cx6g0omiup4v2" path="res://scripts/menu_audio.tres.gd" id="1_racf3"]
 [ext_resource type="Shader" uid="uid://dwgel3d3daqn5" path="res://shaders/spacial_static.gdshader" id="3_8bugq"]
 [ext_resource type="PackedScene" uid="uid://bx7sv30a67htw" path="res://gui/game_over_gui.tscn" id="3_tbwuq"]
 [ext_resource type="AudioStream" uid="uid://jy1sov2bmjxe" path="res://assets/audio/static.ogg" id="7_uq3qu"]
@@ -17,13 +18,15 @@ shader = ExtResource("3_8bugq")
 shader_parameter/scale = 100.0
 shader_parameter/brightness = 0.2
 
-[node name="GameOver" type="Node"]
+[node name="GameOver" type="Node3D"]
+script = ExtResource("1_racf3")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_bqqt6")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.5319293)
+current = true
 
 [node name="NoisePanel" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, -2.8039618)
@@ -34,11 +37,10 @@ surface_material_override/0 = SubResource("ShaderMaterial_8ln24")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.9470048, 1.046814, 4.145144)
 omni_range = 12.579753
 
+[node name="GameOverGUI" parent="." instance=ExtResource("3_tbwuq")]
+
 [node name="StaticAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_uq3qu")
-volume_db = -25.0
 autoplay = true
 bus = &"Menu"
 parameters/looping = true
-
-[node name="GameOverGUI" parent="." instance=ExtResource("3_tbwuq")]
