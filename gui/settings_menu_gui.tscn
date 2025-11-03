@@ -1,6 +1,5 @@
-[gd_scene load_steps=4 format=3 uid="uid://csuxnsld3c1ee"]
+[gd_scene load_steps=3 format=3 uid="uid://csuxnsld3c1ee"]
 
-[ext_resource type="FontFile" uid="uid://vafp7bty02l5" path="res://assets/fonts/VT323.ttf" id="1_h8t4l"]
 [ext_resource type="Script" uid="uid://d0tbekpbywm3v" path="res://scripts/settings.gd" id="1_ro1hg"]
 [ext_resource type="Theme" uid="uid://dye1f3e3ioxr2" path="res://no_static_theme.tres" id="3_ro1hg"]
 
@@ -32,7 +31,6 @@ offset_top = 144.0
 offset_right = 375.0
 offset_bottom = 209.0
 grow_horizontal = 2
-theme_override_fonts/font = ExtResource("1_h8t4l")
 theme_override_font_sizes/font_size = 64
 text = "Settings"
 horizontal_alignment = 1
@@ -56,7 +54,6 @@ theme_override_constants/separation = 25
 
 [node name="MouseSensitivityLabel" type="Label" parent="MenuContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_h8t4l")
 theme_override_font_sizes/font_size = 48
 text = "Mouse Sensitivity"
 horizontal_alignment = 1
@@ -71,7 +68,6 @@ value = 0.049999999999999996
 
 [node name="MasterVolumeLabel" type="Label" parent="MenuContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_h8t4l")
 theme_override_font_sizes/font_size = 48
 text = "Master Volume"
 horizontal_alignment = 1
@@ -83,7 +79,6 @@ value = 100.0
 
 [node name="MenuVolumeLabel" type="Label" parent="MenuContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_h8t4l")
 theme_override_font_sizes/font_size = 48
 text = "Menu Volume"
 horizontal_alignment = 1
@@ -95,7 +90,6 @@ value = 100.0
 
 [node name="GameVolumeLabel" type="Label" parent="MenuContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_h8t4l")
 theme_override_font_sizes/font_size = 48
 text = "Game Volume"
 horizontal_alignment = 1

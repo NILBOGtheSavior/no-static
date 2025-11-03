@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://ducooq07g45y2"]
+[gd_scene load_steps=30 format=4 uid="uid://ducooq07g45y2"]
 
 [ext_resource type="Script" uid="uid://g2mjioowocey" path="res://scripts/static_and_co.gd" id="2_2m4fu"]
 [ext_resource type="Material" uid="uid://3dxt412dnh1v" path="res://materials/glass.tres" id="2_5djif"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b00awnbrbepg8" path="res://scenes/counter.tscn" id="3_gluas"]
 [ext_resource type="PackedScene" uid="uid://mr462igvblrw" path="res://scenes/yoshiba_tv.tscn" id="5_qu25d"]
 [ext_resource type="PackedScene" uid="uid://br0vxo2ryovg7" path="res://scenes/mitachi_tv.tscn" id="6_2m4fu"]
+[ext_resource type="PackedScene" uid="uid://ctucbqtl4aoru" path="res://assets/models/parasonic_tv.glb" id="7_qu25d"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3wr6p"]
 resource_name = "Texture"
@@ -432,3 +433,6 @@ skeleton = NodePath("")
 surface_material_override/1 = SubResource("StandardMaterial3D_2m4fu")
 
 [node name="Timer" type="Timer" parent="LightPanel2"]
+
+[node name="parasonic_tv" parent="." instance=ExtResource("7_qu25d")]
+transform = Transform3D(-0.1046984, 0, -0.4889154, 0, 0.5, 0, 0.4889154, 0, -0.1046984, 2.948963, 1.4228166, 3.1214674)

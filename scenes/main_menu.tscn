@@ -186,6 +186,7 @@ current = true
 
 [node name="yoshiba_tv" type="Node3D" parent="."]
 script = ExtResource("3_8ln24")
+tilt_strength = 0.1
 
 [node name="TV" type="MeshInstance3D" parent="yoshiba_tv"]
 mesh = SubResource("ArrayMesh_oa1go")
