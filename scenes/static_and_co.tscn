@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b00awnbrbepg8" path="res://scenes/counter.tscn" id="3_gluas"]
 [ext_resource type="PackedScene" uid="uid://mr462igvblrw" path="res://scenes/yoshiba_tv.tscn" id="5_qu25d"]
 [ext_resource type="PackedScene" uid="uid://br0vxo2ryovg7" path="res://scenes/mitachi_tv.tscn" id="6_2m4fu"]
-[ext_resource type="PackedScene" uid="uid://ctucbqtl4aoru" path="res://assets/models/parasonic_tv.glb" id="7_qu25d"]
+[ext_resource type="PackedScene" uid="uid://b3mxvdsoi4tpy" path="res://scenes/parasonic_tv.tscn" id="7_qu25d"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3wr6p"]
 resource_name = "Texture"
@@ -396,6 +396,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0009765625, -0.5057678, -0
 [node name="HitachiTV" parent="Furniture/Counter3" instance=ExtResource("6_2m4fu")]
 transform = Transform3D(-0.980247, 0, -0.19777708, 0, 1, 0, 0.19777708, 0, -0.980247, 0, 1.5130695, -0.85906935)
 
+[node name="ParasonicTV" parent="Furniture/Counter3" instance=ExtResource("7_qu25d")]
+transform = Transform3D(-0.48420465, 0, 0.12468303, 0, 0.5, 0, -0.12468303, 0, -0.48420465, -0.009885788, 1.4148145, 0.77705073)
+
 [node name="LightPanel1" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.484357, 2.8859043)
 light_color = Color(0.9411765, 0.9411765, 1, 1)
@@ -433,6 +436,3 @@ skeleton = NodePath("")
 surface_material_override/1 = SubResource("StandardMaterial3D_2m4fu")
 
 [node name="Timer" type="Timer" parent="LightPanel2"]
-
-[node name="parasonic_tv" parent="." instance=ExtResource("7_qu25d")]
-transform = Transform3D(-0.1046984, 0, -0.4889154, 0, 0.5, 0, 0.4889154, 0, -0.1046984, 2.948963, 1.4228166, 3.1214674)

@@ -50,6 +50,13 @@ func set_channel(num):
 func highlight(state : bool):
 	if state:
 		tv_mesh.set_surface_override_material(0, highlight_mat)
+		channel_1_mesh.set_surface_override_material(0, highlight_mat)
+		channel_2_mesh.set_surface_override_material(0, highlight_mat)
+		channel_3_mesh.set_surface_override_material(0, highlight_mat)
+		channel_4_mesh.set_surface_override_material(0, highlight_mat)
+		channel_5_mesh.set_surface_override_material(0, highlight_mat)
+		channel_6_mesh.set_surface_override_material(0, highlight_mat)
+		channel_7_mesh.set_surface_override_material(0, highlight_mat)
 	else:
 		tv_mesh.set_surface_override_material(0, null)
 		if channel_1:

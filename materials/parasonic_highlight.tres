@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://cjf1fx3b4vwpo"]
+
+[ext_resource type="Shader" uid="uid://t2j3kpa2dwv4" path="res://shaders/highlight.gdshader" id="1_a25x2"]
+[ext_resource type="Texture2D" uid="uid://d0fx8tphnunml" path="res://assets/models/parasonic_tv_parasonic_base.png" id="2_qx72n"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_a25x2")
+shader_parameter/tex = ExtResource("2_qx72n")
+shader_parameter/highlight_strength = 0.02
+shader_parameter/time_speed = 2.0

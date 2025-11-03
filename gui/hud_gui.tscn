@@ -45,6 +45,7 @@ theme_override_font_sizes/font_size = 64
 horizontal_alignment = 1
 
 [node name="InteractHint" type="Label" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -89,6 +90,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="LeaveHint" type="Label" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
