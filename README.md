@@ -81,7 +81,7 @@ Each TV had its own positional audio sources. Audio was scaled depending on the 
 ## Systems and Mechanics
 
 - **TV Malfunction Systems**: TVs are randomly selected from a global group at intervals that shorten as the score increases
-- **Player Interaction**: Raycasting is used to select objects from the first person perspective, while area boxes are used for cursor interactions
+- **Player Interaction**: Raycasting is used to select objects from the first-person perspective, while area boxes are used for cursor interactions
 - **Hints**: Player hints are shown based on global states in the GameManager singleton
 - **Difficulty Scaling**: Timer intervals shorten as player score increases
 
@@ -93,7 +93,7 @@ Additional procedural textures were generated using custom **shader-based noise 
 ## Future Improvements
 
 - [X] Balance scaling (inverse-square instead of linear)
-- [ ] Add diverse TVs with different tuning systems
+- [X] Add diverse TVs with different tuning systems
 - [X] Improve lighting (~~flicker~~, ~~god rays~~, ~~post-processing~~)
 - [ ] Add tutorial with a backstory
 - [X] Add configurable settings
