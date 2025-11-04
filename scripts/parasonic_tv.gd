@@ -8,8 +8,10 @@ var dial_highlight_mat = preload("res://materials/parasonic_dial_highlight.tres"
 @export var rotation_speed : float = 0.5
 
 var dial_hover : bool = false
+var dial_channel : int = 0
+var tune_channel : int
 var is_dragging : bool = false
-var dial_angle : float = 0.0
+var dial_angle : int = 0
 var input_angle : float
 var snap_steps : int = 12
 var step_angle : float = 360.0 / snap_steps
@@ -24,7 +26,14 @@ func _ready() -> void:
 func posess(dist : int, positive : bool):
 	if not posessed:
 		posessed = true
+		tune_channel = randi_range(1, 12)
 		tune_distance = dist
+
+func set_channel():
+	if dial_channel == tune_channel:
+		tune_distance = 0
+	else:
+		tune_distance = randi_range(3, 8)
 
 func highlight(state : bool):
 	if state:
@@ -33,11 +42,8 @@ func highlight(state : bool):
 	else:
 		tv_mesh.set_surface_override_material(0, null)
 		dial_mesh.set_surface_override_material(0, null)
-		if dial_hover:
+		if dial_hover and not is_dragging:
 			dial_mesh.set_surface_override_material(0, dial_highlight_mat)
-
-func dial_rotate(dir):
-	pass
 
 func _on_dial_area_mouse_entered() -> void:
 	dial_hover = true
@@ -57,12 +63,15 @@ func _input(event):
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			if not event.pressed:
 				is_dragging = false
+				
+				
 
 	elif event is InputEventMouseMotion and is_dragging:
 		var delta_x = event.position.x - last_mouse_x
 		last_mouse_x = event.position.x
-		
 		input_angle -= delta_x * rotation_speed
 		dial_angle = round(input_angle / step_angle) * step_angle
-		dial_angle = clamp(dial_angle, -180, 180)
 		dial_mesh.rotation_degrees.z = dial_angle
+		dial_angle = dial_angle % 360
+		dial_channel = int(lerp(0, 12, abs(dial_angle) / 360.0) + 1)
+		set_channel()
