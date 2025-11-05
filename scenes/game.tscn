@@ -9,7 +9,8 @@
 
 [sub_resource type="Environment" id="Environment_lnu2h"]
 background_mode = 1
-ambient_light_energy = 2.5
+ambient_light_source = 2
+ambient_light_color = Color(0.019607844, 0.019607844, 0.019607844, 1)
 reflected_light_source = 1
 tonemap_mode = 2
 ssr_max_steps = 32

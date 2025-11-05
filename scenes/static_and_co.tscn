@@ -1,10 +1,12 @@
-[gd_scene load_steps=30 format=4 uid="uid://ducooq07g45y2"]
+[gd_scene load_steps=32 format=4 uid="uid://ducooq07g45y2"]
 
 [ext_resource type="Script" uid="uid://g2mjioowocey" path="res://scripts/static_and_co.gd" id="2_2m4fu"]
 [ext_resource type="Material" uid="uid://3dxt412dnh1v" path="res://materials/glass.tres" id="2_5djif"]
 [ext_resource type="Texture2D" uid="uid://ixfm4j31wu1u" path="res://assets/models/static_and_co_Untitled.png" id="2_jjmmj"]
 [ext_resource type="PackedScene" uid="uid://mr462igvblrw" path="res://scenes/yoshiba_tv.tscn" id="5_qu25d"]
 [ext_resource type="PackedScene" uid="uid://br0vxo2ryovg7" path="res://scenes/mitachi_tv.tscn" id="6_2m4fu"]
+[ext_resource type="PackedScene" uid="uid://ti0rpmwm6fmg" path="res://assets/models/shelf.glb" id="6_8ox5s"]
+[ext_resource type="PackedScene" uid="uid://bxtoqrtpqiftg" path="res://assets/models/cash_register.glb" id="7_8ox5s"]
 [ext_resource type="PackedScene" uid="uid://csnvf2o1l7n56" path="res://assets/models/counter.glb" id="7_i5h55"]
 [ext_resource type="PackedScene" uid="uid://b3mxvdsoi4tpy" path="res://scenes/parasonic_tv.tscn" id="7_qu25d"]
 
@@ -183,7 +185,7 @@ size = Vector3(1.5817871, 5.138672, 10.143311)
 size = Vector3(10.758713, 5.317627, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2m4fu"]
-size = Vector3(1.2070313, 1.1051598, 3.1868286)
+size = Vector3(1.2070313, 1.1194744, 3.1868286)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_givpg"]
 resource_name = "Material"
@@ -368,41 +370,17 @@ shape = SubResource("BoxShape3D_wx68d")
 
 [node name="Furniture" type="Node3D" parent="."]
 
-[node name="Counter" type="StaticBody3D" parent="Furniture"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0856366, 0, 3.1663597)
+[node name="CheckoutCounter" type="StaticBody3D" parent="Furniture"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 3.166)
 collision_layer = 2
 collision_mask = 0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Furniture/Counter"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0009765625, 0.5708542, -0.033416748)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Furniture/CheckoutCounter"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0009765625, 0.5780115, -0.033416748)
 shape = SubResource("BoxShape3D_2m4fu")
 
-[node name="YoshibaTV" parent="Furniture/Counter" instance=ExtResource("5_qu25d")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 1.6281888, 0.834429)
-
-[node name="YoshibaTV2" parent="Furniture/Counter" instance=ExtResource("5_qu25d")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 1.6281888, -0.6344781)
-
-[node name="counter" parent="Furniture/Counter" instance=ExtResource("7_i5h55")]
+[node name="counter" parent="Furniture/CheckoutCounter" instance=ExtResource("7_i5h55")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.0514338, 0.034035563, -0.039197206)
-
-[node name="Counter3" type="StaticBody3D" parent="Furniture"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.0772042, 0, 2.43548)
-collision_layer = 2
-collision_mask = 0
-
-[node name="Counter" type="CollisionShape3D" parent="Furniture/Counter3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.041992188, 0.5822735, 0.6864419)
-shape = SubResource("BoxShape3D_2m4fu")
-
-[node name="HitachiTV" parent="Furniture/Counter3" instance=ExtResource("6_2m4fu")]
-transform = Transform3D(-0.980247, 0, -0.19777708, 0, 1, 0, 0.19777708, 0, -0.980247, 0, 1.6326904, -0.11047268)
-
-[node name="ParasonicTV" parent="Furniture/Counter3" instance=ExtResource("7_qu25d")]
-transform = Transform3D(-0.48420465, 0, 0.12468303, 0, 0.5, 0, -0.12468303, 0, -0.48420465, -0.009885788, 1.5344354, 1.5256474)
-
-[node name="counter" parent="Furniture/Counter3" instance=ExtResource("7_i5h55")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.04066205, 0.034, 0.69351983)
 
 [node name="LightPanel1" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.484357, 2.8859043)
@@ -441,3 +419,27 @@ skeleton = NodePath("")
 surface_material_override/1 = SubResource("StandardMaterial3D_2m4fu")
 
 [node name="Timer" type="Timer" parent="LightPanel2"]
+
+[node name="cash_register" parent="." instance=ExtResource("7_8ox5s")]
+transform = Transform3D(0.2430128, 0, -0.058692224, 0, 0.25, 0, 0.058692224, 0, 0.2430128, 0.7802595, 1.135509, 3.3552969)
+
+[node name="shelf" parent="." instance=ExtResource("6_8ox5s")]
+transform = Transform3D(0.5, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -2.98476, 0, -1.4491148)
+
+[node name="MitachiTV" parent="." instance=ExtResource("6_2m4fu")]
+transform = Transform3D(0.9529793, 0, 0.3030352, 0, 1, 0, -0.3030352, 0, 0.9529793, -2.950644, 0.6014056, 0.3132038)
+
+[node name="MitachiTV2" parent="." instance=ExtResource("6_2m4fu")]
+transform = Transform3D(0.87631506, 0, -0.4817384, 0, 1, 0, 0.4817384, 0, 0.87631506, -2.950644, 1.7793111, -3.1208098)
+
+[node name="YoshibaTV" parent="." instance=ExtResource("5_qu25d")]
+transform = Transform3D(0.49483573, 0, -0.071677215, 0, 0.5, 0, 0.071677215, 0, 0.49483573, -3.0190604, 0.61540073, -1.3404964)
+
+[node name="YoshibaTV2" parent="." instance=ExtResource("5_qu25d")]
+transform = Transform3D(0.49263248, 0, 0.08551751, 0, 0.5, 0, -0.08551751, 0, 0.49263248, -2.8195064, 1.7828174, -0.24877548)
+
+[node name="ParasonicTV" parent="." instance=ExtResource("7_qu25d")]
+transform = Transform3D(0.4995359, 0, 0.021539405, 0, 0.5, 0, -0.021539405, 0, 0.4995359, -2.8295624, 1.707661, -1.5436082)
+
+[node name="ParasonicTV2" parent="." instance=ExtResource("7_qu25d")]
+transform = Transform3D(0.4350145, 0, -0.24650039, 0, 0.5, 0, 0.24650039, 0, 0.4350145, -2.8295624, 0.5317478, -2.8677206)
