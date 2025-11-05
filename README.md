@@ -97,7 +97,15 @@ Additional procedural textures were generated using custom **shader-based noise 
 - [X] Improve lighting (~~flicker~~, ~~god rays~~, ~~post-processing~~)
 - [ ] Add tutorial with a backstory
 - [X] Add configurable settings
-- [ ] Decorate the store and make the environment more appealing
+- [ ] Decorate the store and make the environment more appealing:
+    - [ ] Cash register
+    - [ ] Metal shelving units
+    - [ ] Signs (Static and Co, Employees Only, Sale banner)
+    - [ ] VCR
+    - [ ] Neon OPEN sign
+    - [ ] Brand poster for TVs
+    - [ ] Receipts
+    - [ ] Ashtray
 - [X] Improve UI (themed buttons)
 - [ ] Add dynamic sound design (footsteps, button clicks)
 - [ ] Expand lore through environmental storytelling
