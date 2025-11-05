@@ -98,8 +98,8 @@ Additional procedural textures were generated using custom **shader-based noise 
 - [ ] Add tutorial with a backstory
 - [X] Add configurable settings
 - [ ] Decorate the store and make the environment more appealing:
-    - [ ] Cash register
-    - [ ] Metal shelving units
+    - [X] Cash register
+    - [X] Metal shelving units
     - [ ] Signs (Static and Co, Employees Only, Sale banner)
     - [ ] VCR
     - [ ] Neon OPEN sign
