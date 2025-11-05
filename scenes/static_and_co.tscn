@@ -3,9 +3,9 @@
 [ext_resource type="Script" uid="uid://g2mjioowocey" path="res://scripts/static_and_co.gd" id="2_2m4fu"]
 [ext_resource type="Material" uid="uid://3dxt412dnh1v" path="res://materials/glass.tres" id="2_5djif"]
 [ext_resource type="Texture2D" uid="uid://ixfm4j31wu1u" path="res://assets/models/static_and_co_Untitled.png" id="2_jjmmj"]
-[ext_resource type="PackedScene" uid="uid://b00awnbrbepg8" path="res://scenes/counter.tscn" id="3_gluas"]
 [ext_resource type="PackedScene" uid="uid://mr462igvblrw" path="res://scenes/yoshiba_tv.tscn" id="5_qu25d"]
 [ext_resource type="PackedScene" uid="uid://br0vxo2ryovg7" path="res://scenes/mitachi_tv.tscn" id="6_2m4fu"]
+[ext_resource type="PackedScene" uid="uid://csnvf2o1l7n56" path="res://assets/models/counter.glb" id="7_i5h55"]
 [ext_resource type="PackedScene" uid="uid://b3mxvdsoi4tpy" path="res://scenes/parasonic_tv.tscn" id="7_qu25d"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3wr6p"]
@@ -183,7 +183,7 @@ size = Vector3(1.5817871, 5.138672, 10.143311)
 size = Vector3(10.758713, 5.317627, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_2m4fu"]
-size = Vector3(1.2128906, 1.0097046, 3.1564941)
+size = Vector3(1.2070313, 1.1051598, 3.1868286)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_givpg"]
 resource_name = "Material"
@@ -370,34 +370,39 @@ shape = SubResource("BoxShape3D_wx68d")
 
 [node name="Counter" type="StaticBody3D" parent="Furniture"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0856366, 0, 3.1663597)
-
-[node name="Counter" parent="Furniture/Counter" instance=ExtResource("3_gluas")]
+collision_layer = 2
+collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Furniture/Counter"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0009765625, 0.5057678, 0.0025634766)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0009765625, 0.5708542, -0.033416748)
 shape = SubResource("BoxShape3D_2m4fu")
 
 [node name="YoshibaTV" parent="Furniture/Counter" instance=ExtResource("5_qu25d")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 1.5006502, 0.834429)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 1.6281888, 0.834429)
 
 [node name="YoshibaTV2" parent="Furniture/Counter" instance=ExtResource("5_qu25d")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 1.5006502, -0.6344781)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 1.6281888, -0.6344781)
+
+[node name="counter" parent="Furniture/Counter" instance=ExtResource("7_i5h55")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.0514338, 0.034035563, -0.039197206)
 
 [node name="Counter3" type="StaticBody3D" parent="Furniture"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.0772042, 0, 2.43548)
+collision_layer = 2
+collision_mask = 0
 
 [node name="Counter" type="CollisionShape3D" parent="Furniture/Counter3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0009765625, 0.5057678, 0.0025634766)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.041992188, 0.5822735, 0.6864419)
 shape = SubResource("BoxShape3D_2m4fu")
 
-[node name="Counter" parent="Furniture/Counter3/Counter" instance=ExtResource("3_gluas")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0009765625, -0.5057678, -0.0025634766)
-
 [node name="HitachiTV" parent="Furniture/Counter3" instance=ExtResource("6_2m4fu")]
-transform = Transform3D(-0.980247, 0, -0.19777708, 0, 1, 0, 0.19777708, 0, -0.980247, 0, 1.5130695, -0.85906935)
+transform = Transform3D(-0.980247, 0, -0.19777708, 0, 1, 0, 0.19777708, 0, -0.980247, 0, 1.6326904, -0.11047268)
 
 [node name="ParasonicTV" parent="Furniture/Counter3" instance=ExtResource("7_qu25d")]
-transform = Transform3D(-0.48420465, 0, 0.12468303, 0, 0.5, 0, -0.12468303, 0, -0.48420465, -0.009885788, 1.4148145, 0.77705073)
+transform = Transform3D(-0.48420465, 0, 0.12468303, 0, 0.5, 0, -0.12468303, 0, -0.48420465, -0.009885788, 1.5344354, 1.5256474)
+
+[node name="counter" parent="Furniture/Counter3" instance=ExtResource("7_i5h55")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.04066205, 0.034, 0.69351983)
 
 [node name="LightPanel1" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.484357, 2.8859043)
