@@ -102,10 +102,10 @@ Additional procedural textures were generated using custom **shader-based noise 
     - [X] Metal shelving units
     - [ ] Signs (Static and Co, Employees Only, Sale banner)
     - [ ] VCR
-    - [ ] Neon OPEN sign
+    - [X] Neon OPEN sign
     - [ ] Brand poster for TVs
     - [ ] Receipts
-    - [ ] Ashtray
+    - [X] Ashtray
 - [X] Improve UI (themed buttons)
 - [ ] Add dynamic sound design (footsteps, button clicks)
 - [ ] Expand lore through environmental storytelling
