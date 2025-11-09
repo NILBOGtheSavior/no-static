@@ -1,14 +1,16 @@
-[gd_scene load_steps=32 format=4 uid="uid://ducooq07g45y2"]
+[gd_scene load_steps=34 format=4 uid="uid://ducooq07g45y2"]
 
 [ext_resource type="Script" uid="uid://g2mjioowocey" path="res://scripts/static_and_co.gd" id="2_2m4fu"]
 [ext_resource type="Material" uid="uid://3dxt412dnh1v" path="res://materials/glass.tres" id="2_5djif"]
 [ext_resource type="Texture2D" uid="uid://ixfm4j31wu1u" path="res://assets/models/static_and_co_Untitled.png" id="2_jjmmj"]
+[ext_resource type="PackedScene" uid="uid://cjosm3ywv7by4" path="res://scenes/neon_sign.tscn" id="4_1fcrs"]
 [ext_resource type="PackedScene" uid="uid://mr462igvblrw" path="res://scenes/yoshiba_tv.tscn" id="5_qu25d"]
 [ext_resource type="PackedScene" uid="uid://br0vxo2ryovg7" path="res://scenes/mitachi_tv.tscn" id="6_2m4fu"]
 [ext_resource type="PackedScene" uid="uid://ti0rpmwm6fmg" path="res://assets/models/shelf.glb" id="6_8ox5s"]
 [ext_resource type="PackedScene" uid="uid://bxtoqrtpqiftg" path="res://assets/models/cash_register.glb" id="7_8ox5s"]
 [ext_resource type="PackedScene" uid="uid://csnvf2o1l7n56" path="res://assets/models/counter.glb" id="7_i5h55"]
 [ext_resource type="PackedScene" uid="uid://b3mxvdsoi4tpy" path="res://scenes/parasonic_tv.tscn" id="7_qu25d"]
+[ext_resource type="PackedScene" uid="uid://ct3bs32g133ux" path="res://assets/models/ashtray.glb" id="7_r0ufq"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3wr6p"]
 resource_name = "Texture"
@@ -30,20 +32,20 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_ynofa"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_1fcrs"]
 resource_name = "static_and_co_Cube_001"
+lightmap_size_hint = Vector2i(310, 370)
 _surfaces = [{
 "aabb": AABB(-3.75, -1.875, -5, 7.5, 3.75, 10),
-"attribute_data": PackedByteArray("/////2Xm3cT//93EZeb//5mZ3cT/f7uJmZm7if9/3cTMzN3EMrOEmMzMhJgys93E/3/dxDKz////f///MrPdxDKz3cRl5v//MrP//2Xm3cQ="),
-"format": 34896613399,
+"attribute_data": PackedByteArray("QL9dPwAAgD+nAS0/cKd/P+5kMT+Kuwk/jp7gPN1gSj9Av10/irsJP46e4Dxwp38/7mQxPwAAgD+nAS0/3WBKP9BlMT6Kuwk/D9VtPOsGEz9Av123oLibPQe0KT9+TUg/0GUxPqC4mz0HtCk/6wYTP0C/XbeKuwk/D9VtPH5NSD9aDAU/irsJP2CyPD/rBhM/EWSxPsgkRD6sSHw/8eJ8P1oMBT/IJEQ+YLI8P/HifD8RZLE+irsJP6xIfD/rBhM/QL9dt4q7CT8cPQE/0TG8PBFksT4AAIA/TJZ/P4zzED9Av123AACAPxw9AT+M8xA/EWSxPoq7CT9Mln8/0TG8PBFksT6Kuwk/DWjTOtQfsTruZDE/AACAP8iF/T6Nags/EWSxPgAAgD8NaNM6jWoLP+5kMT+Kuwk/yIX9PtQfsTo="),
+"format": 34359742519,
 "index_count": 30,
 "index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEA"),
 "material": SubResource("StandardMaterial3D_3wr6p"),
-"name": "Texture",
 "primitive": 3,
-"uv_scale": Vector4(1.732399, 2, 0, 0),
+"uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 20,
-"vertex_data": PackedByteArray("AAAAAP//VNUAAP//AABU1QAAAAAAAFTVAAD/////VNX//wAAAABU1f///////1TV//8AAP//VNX/////AABU1f//AAD/////AAD///////8AAAAA////////////////AAAAAAAA/7///wAA////vwAAAAD///+///8AAAAA/7//////AAD//wAA//////////////////8AAP//AAD//6qqVFWqqlRVqqpUVaqqVFVUVaqqVFWqqlRVqqpUVaqq/z//v/8//7//P/+//z//v////3////9/////f////3//f/8//3//P/9//z//f/8/")
+"vertex_data": PackedByteArray("AABwwAAA8L8AAKBAAABwwAAA8D8AAKDAAABwwAAA8L8AAKDAAABwwAAA8D8AAKBAAABwQAAA8L8AAKDAAABwQAAA8D8AAKBAAABwQAAA8L8AAKBAAABwQAAA8D8AAKDAAABwQAAA8L8AAKBAAABwwAAA8D8AAKBAAABwwAAA8L8AAKBAAABwQAAA8D8AAKBAAABwwAAA8L8AAKDAAABwQAAA8L8AAKBAAABwwAAA8L8AAKBAAABwQAAA8L8AAKDAAABwQAAA8D8AAKDAAABwwAAA8D8AAKBAAABwQAAA8D8AAKBAAABwwAAA8D8AAKDA/v8CgASAAID+/wKABIAAgP7/AoAEgACA/v8CgASAAIADAPl/A4ABgAMA+X8DgAGAAwD5fwOAAYADAPl/A4ABgP7/AQABgAGA/v8BAAGAAYD+/wEAAYABgP7/AQABgAGA/3/9//7//7//f/3//v//v/9//f/+//+//3/9//7//7/6fwEAAQAAwPp/AQABAADA+n8BAAEAAMD6fwEAAQAAwA==")
 }]
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_b18fu")
@@ -324,7 +326,7 @@ script = ExtResource("2_2m4fu")
 
 [node name="Room" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9, 0)
-mesh = SubResource("ArrayMesh_ynofa")
+mesh = SubResource("ArrayMesh_1fcrs")
 skeleton = NodePath("")
 
 [node name="WindowFrame" type="MeshInstance3D" parent="."]
@@ -342,6 +344,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9, 0)
 mesh = SubResource("ArrayMesh_aqtcw")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("2_5djif")
+
+[node name="NeonSign" parent="GlassDoor" instance=ExtResource("4_1fcrs")]
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, 2, -0.20625687, -4.982905)
 
 [node name="Window" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9, 0)
@@ -362,6 +367,7 @@ shape = SubResource("BoxShape3D_5djif")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="Colliders"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.01876831, 2.5102305, -5.5282035)
+visible = false
 shape = SubResource("BoxShape3D_wx68d")
 
 [node name="CollisionShape3D4" type="CollisionShape3D" parent="Colliders"]
@@ -369,9 +375,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.057670593, 2.553833, 5.482
 shape = SubResource("BoxShape3D_wx68d")
 
 [node name="Furniture" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.3429904)
 
 [node name="CheckoutCounter" type="StaticBody3D" parent="Furniture"]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 3.166)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 3.6243787)
 collision_layer = 2
 collision_mask = 0
 
@@ -381,6 +388,12 @@ shape = SubResource("BoxShape3D_2m4fu")
 
 [node name="counter" parent="Furniture/CheckoutCounter" instance=ExtResource("7_i5h55")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.0514338, 0.034035563, -0.039197206)
+
+[node name="cash_register" parent="Furniture/CheckoutCounter" instance=ExtResource("7_8ox5s")]
+transform = Transform3D(-0.058692235, 0, -0.2430128, 0, 0.25, 0, 0.2430128, 0, -0.058692235, -0.18929696, 1.135509, 0.78025943)
+
+[node name="ashtray2" parent="Furniture/CheckoutCounter" instance=ExtResource("7_r0ufq")]
+transform = Transform3D(0.14229086, 0, 0.047469053, 0, 0.14999999, 0, -0.047469053, 0, 0.14229086, 0, 1.1350458, -1.0086176)
 
 [node name="LightPanel1" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.484357, 2.8859043)
@@ -420,26 +433,44 @@ surface_material_override/1 = SubResource("StandardMaterial3D_2m4fu")
 
 [node name="Timer" type="Timer" parent="LightPanel2"]
 
-[node name="cash_register" parent="." instance=ExtResource("7_8ox5s")]
-transform = Transform3D(0.2430128, 0, -0.058692224, 0, 0.25, 0, 0.058692224, 0, 0.2430128, 0.7802595, 1.135509, 3.3552969)
-
 [node name="shelf" parent="." instance=ExtResource("6_8ox5s")]
-transform = Transform3D(0.5, 0, 0, 0, 0.25, 0, 0, 0, 0.25, -2.98476, 0, -1.4491148)
+transform = Transform3D(0.4, 0, 0, 0, 0.25, 0, 0, 0, 0.2, -3.151922, 0, -1.1734862)
 
 [node name="MitachiTV" parent="." instance=ExtResource("6_2m4fu")]
-transform = Transform3D(0.9529793, 0, 0.3030352, 0, 1, 0, -0.3030352, 0, 0.9529793, -2.950644, 0.6014056, 0.3132038)
+transform = Transform3D(0.9529793, 0, 0.3030352, 0, 1, 0, -0.3030352, 0, 0.9529793, -3.117806, 0.6014056, 0.124889255)
 
 [node name="MitachiTV2" parent="." instance=ExtResource("6_2m4fu")]
-transform = Transform3D(0.87631506, 0, -0.4817384, 0, 1, 0, 0.4817384, 0, 0.87631506, -2.950644, 1.7793111, -3.1208098)
+transform = Transform3D(0.87631506, 0, -0.4817384, 0, 1, 0, 0.4817384, 0, 0.87631506, -3.117806, 1.7793111, -2.543492)
 
 [node name="YoshibaTV" parent="." instance=ExtResource("5_qu25d")]
-transform = Transform3D(0.49483573, 0, -0.071677215, 0, 0.5, 0, 0.071677215, 0, 0.49483573, -3.0190604, 0.61540073, -1.3404964)
+transform = Transform3D(0.49483573, 0, -0.071677215, 0, 0.5, 0, 0.071677215, 0, 0.49483573, -3.1862223, 0.61540073, -1.2955594)
 
 [node name="YoshibaTV2" parent="." instance=ExtResource("5_qu25d")]
-transform = Transform3D(0.49263248, 0, 0.08551751, 0, 0.5, 0, -0.08551751, 0, 0.49263248, -2.8195064, 1.7828174, -0.24877548)
+transform = Transform3D(0.49263248, 0, 0.08551751, 0, 0.5, 0, -0.08551751, 0, 0.49263248, -2.9866683, 1.7828174, 0.026853085)
 
 [node name="ParasonicTV" parent="." instance=ExtResource("7_qu25d")]
-transform = Transform3D(0.4995359, 0, 0.021539405, 0, 0.5, 0, -0.021539405, 0, 0.4995359, -2.8295624, 1.707661, -1.5436082)
+transform = Transform3D(0.4995359, 0, 0.021539405, 0, 0.5, 0, -0.021539405, 0, 0.4995359, -2.9967244, 1.707661, -1.2047608)
 
 [node name="ParasonicTV2" parent="." instance=ExtResource("7_qu25d")]
-transform = Transform3D(0.4350145, 0, -0.24650039, 0, 0.5, 0, 0.24650039, 0, 0.4350145, -2.8295624, 0.5317478, -2.8677206)
+transform = Transform3D(0.4350145, 0, -0.24650039, 0, 0.5, 0, 0.24650039, 0, 0.4350145, -2.9967244, 0.5317478, -2.5320272)
+
+[node name="shelf2" parent="." instance=ExtResource("6_8ox5s")]
+transform = Transform3D(-0.405, 0, -3.019916e-08, 0, 0.25, 0, 6.11533e-08, 0, -0.2, 3.0967183, 0, -1.20592)
+
+[node name="MitachiTV3" parent="." instance=ExtResource("6_2m4fu")]
+transform = Transform3D(-0.9529793, 0, -0.3030353, 0, 1, 0, 0.3030353, 0, -0.9529793, 3.062602, 0.6014056, -2.5854788)
+
+[node name="MitachiTV4" parent="." instance=ExtResource("6_2m4fu")]
+transform = Transform3D(-0.87631524, 0, 0.48173836, 0, 1, 0, -0.48173836, 0, -0.87631524, 3.0626025, 1.7793111, 0.2438047)
+
+[node name="YoshibaTV3" parent="." instance=ExtResource("5_qu25d")]
+transform = Transform3D(-0.49483573, 0, 0.07167717, 0, 0.5, 0, -0.07167717, 0, -0.49483573, 3.1310186, 0.61540073, -1.049552)
+
+[node name="YoshibaTV4" parent="." instance=ExtResource("5_qu25d")]
+transform = Transform3D(-0.49263248, 0, -0.085517555, 0, 0.5, 0, 0.085517555, 0, -0.49263248, 2.9314647, 1.7828174, -2.4062593)
+
+[node name="ParasonicTV3" parent="." instance=ExtResource("7_qu25d")]
+transform = Transform3D(-0.4995359, 0, -0.021539448, 0, 0.5, 0, 0.021539448, 0, -0.4995359, 2.9415207, 1.707661, -1.1114266)
+
+[node name="ParasonicTV4" parent="." instance=ExtResource("7_qu25d")]
+transform = Transform3D(-0.43501452, 0, 0.24650034, 0, 0.5, 0, -0.24650034, 0, -0.43501452, 2.941521, 0.5317478, 0.21268582)

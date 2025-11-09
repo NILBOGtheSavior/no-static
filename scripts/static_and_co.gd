@@ -40,7 +40,7 @@ class LightUnit:
 			light.light_energy = energy * 0.1
 			timer.start(randf_range(0.05, 0.1))
 		else:
-			material.emission_energy_multiplier = 1
-			light.light_energy = 0.1
+			material.emission_energy_multiplier = 0.5
+			light.light_energy = 0.05
 			flicker()
 			

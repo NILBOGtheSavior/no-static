@@ -9,30 +9,32 @@
 
 [sub_resource type="Environment" id="Environment_lnu2h"]
 background_mode = 1
-ambient_light_source = 2
+ambient_light_source = 3
 ambient_light_color = Color(0.019607844, 0.019607844, 0.019607844, 1)
 reflected_light_source = 1
 tonemap_mode = 2
-ssr_max_steps = 32
+ssr_enabled = true
 ssao_enabled = true
 sdfgi_energy = 0.0
 glow_enabled = true
 glow_normalized = true
-glow_intensity = 0.46
-glow_strength = 0.76
+glow_strength = 0.72
 glow_bloom = 0.2
 glow_blend_mode = 1
 volumetric_fog_enabled = true
 volumetric_fog_density = 0.1
 volumetric_fog_anisotropy = 0.6
 adjustment_enabled = true
-adjustment_brightness = 1.5
+adjustment_brightness = 1.15
 adjustment_contrast = 1.1
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_yqjtg"]
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_0tnpc"]
-size = Vector2(10, 7.5)
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_p57ef"]
+flip_faces = true
+height = 1.5
+radial_segments = 32
+rings = 1
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vtaks"]
 render_priority = 0
@@ -65,8 +67,8 @@ script = ExtResource("5_iywne")
 [node name="StaticAndCo" parent="." instance=ExtResource("3_iywne")]
 
 [node name="OuterNoise" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 1.9774041, -5.972543)
-mesh = SubResource("PlaneMesh_0tnpc")
+transform = Transform3D(12.028855, 0, 0, 0, -8.7791284e-07, -8.9515915, 0, 20.084307, -3.912865e-07, 0, 1.9774041, -4.676045)
+mesh = SubResource("CapsuleMesh_p57ef")
 surface_material_override/0 = SubResource("ShaderMaterial_vtaks")
 
 [connection signal="game_over" from="Player" to="." method="_on_game_over"]
